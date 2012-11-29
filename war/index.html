@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Map">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta itemprop="name" content="FAILRAIL.sg">
+<meta itemprop="description"
+	content="A data visualization of train service disruptions in Singapore">
+<meta property="fb:app_id" content="108496995971453" />
+<title>FAILRAIL.sg</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css"
+	type="text/css">
+<link rel="stylesheet" href="toastr/toastr.css" type="text/css">
+<link rel="stylesheet" href="toastr/toastr-responsive.css"
+	type="text/css">
+<link rel="stylesheet" href="styles/screen.css" type="text/css">
+
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<script type="text/javascript"
+	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCIbRtyDo_GNHcCkGrSH-YZcfj68edf-xU&sensor=false"></script>
+
+<script type="text/javascript" src="timemap/mxn/mxn.js?(googlev3)"></script>
+<script type="text/javascript" src="timemap/timeline-2.3.0.js"></script>
+<script type="text/javascript" src="timemap/timemap_full.pack.js"></script>
+<script type="text/javascript" src="js/frtimemap.js"></script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push([ '_setAccount', 'UA-28949207-1' ]);
+	_gaq.push([ '_trackPageview' ]);
+
+	(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www')
+				+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+
+<body>
+	<!-- BEGIN code Facebook Social Plugin using XFBML -->
+	<div id="fb-root"></div>
+	<script>
+		// Load the SDK Asynchronously
+		(function(d) {
+			var js, id = 'facebook-jssdk', ref = d
+					.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {
+				return;
+			}
+			js = d.createElement('script');
+			js.id = id;
+			js.async = true;
+			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));
+	</script>
+	<!-- END code Facebook Social Plugin using XFBML -->
+
+
+	<div class="container-fluid">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<a class="brand" href="index.html">FAILRAIL.sg</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Map</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Dashboard <b class="caret"></b>
+						</a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<li><a href="overview.html">Overview</a></li>
+								<li><a href="major-disruptions.html">Major Disruptions</a></li>
+
+								<li class="nav-header">Rail Line</li>
+								<li><a href="line.html">Line Fault</a></li>
+								<li><a href="length-of-delay.html">Length of Delay</a></li>
+							</ul></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Reports <b class="caret"></b>
+						</a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<li><a href="train-faults-halved.html">Train Faults
+										Halved?</a></li>
+								<li><a href="fines.html">Fine Lines</a></li>
+								<li><a href="ebutton.html">Emergency Button Activations</a></li>
+							</ul></li>
+						<li><a
+							href="https://script.google.com/macros/s/AKfycbyUootM9U5uXo_hcFD3GZXX5RHSOhMN6JvJxfnem2uRg4p78MU/exec"
+							target="_blank">Search</a></li>
+						<li><a
+							href="http://goo.gl/HQrby"
+							target="_blank">Calendar</a></li>
+						<li><a
+							href="https://docs.google.com/folder/d/0B0dFf0ojY-LPeTl5VnpGRzBTTzA/edit"
+							target="_blank">Archive</a></li>
+						<li><a
+							href="https://docs.google.com/spreadsheet/pub?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&output=html"
+							target="_blank">Data</a></li>
+						<li><a href="about.html">About</a></li>
+					</ul>
+					<div id="gplus-button" class="pull-right">
+						<!-- g-plusone button does not display properly if mixed with other css classes -->
+						<div class="g-plusone" data-size="medium"
+							data-href="http://failrailsg.appspot.com/"></div>
+					</div>
+					<div id="tweet-button" class="pull-right">
+						<a href="https://twitter.com/share" class="twitter-share-button"
+							data-url="http://failrailsg.appspot.com/"
+							data-text="FAILRAIL.sg visualizing train service disruptions in Singapore">Tweet</a>
+					</div>
+					<div id="fb-like-button" class="pull-right">
+						<div class="fb-like" data-href="http://failrailsg.appspot.com/"
+							data-send="false" data-layout="button_count"
+							data-show-faces="false"></div>
+					</div>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+		<!-- END of top navbar -->
+
+		<div class="row-fluid">
+			<div class="span12">
+				<div id="linelegend" class="btn-group"
+					data-toggle="buttons-checkbox">
+					<button type="button" class="btn active btn-green" id="ewl-filter"
+						value="East-West Line">East-West Line</button>
+					<button type="button" class="btn active btn-danger" id="nsl-filter"
+						value="North-South Line">North-South Line</button>
+					<button type="button" class="btn active btn-purple" id="nel-filter"
+						value="North-East Line">North-East Line</button>
+					<button type="button" class="btn active btn-warning"
+						id="ccl-filter" value="Circle Line">Circle Line</button>
+					<button type="button" class="btn active btn-cyan" id="bplrt-filter"
+						value="Bukit Panjang LRT">Bukit Panjang LRT</button>
+					<button type="button" class="btn active btn-muskgrey"
+						id="pglrt-filter" value="Punggol LRT">Punggol LRT</button>
+				</div>
+
+				<a id="hello-world" href="#" class="btn btn-primary" rel="popover"><i
+					class="icon-info-sign icon-white"></i> What's This?</a> <a
+					id="timeline-zoom-tip" href="#" class="btn btn-primary"
+					rel="popover"><i class="icon-search icon-white"></i> Timeline
+					Zoom</a>
+			</div>
+		</div>
+
+
+		<div class="row-fluid">
+			<div class="span12">
+				<div id="timemap">
+					<div id="timelinecontainer">
+						<div id="timeline"></div>
+					</div>
+					<div id="mapcontainer">
+						<div id="map"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- end of layout container -->
+
+
+
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		// Tooltip options
+		(function pageUI() {
+			var options = {
+				title : "Zooming the Timeline",
+				placement : "bottom",
+				html : "false",
+				trigger : "hover",
+				content : "You can adjust the zoom level of the timeline by scrolling the mouse wheel. For example, the upper time band can zoom in to days and the lower time band can zoom out to years. Place the mouse pointer over the time band before scrolling the mouse wheel."
+			};
+			$("#timeline-zoom-tip").popover(options);
+			options.title = "Hi There!";
+			options.content = "This site shows a timeline of the train service disruptions in Singapore. Scroll the timeline by dragging or double-clicking on the grey bars above the map. To see more event information, click on the coloured pins on the timeline or the polylines on the map.";
+			$("#hello-world").popover(options);
+
+			// Tooltip options
+			options = {
+				title : "Hide/show events on the East-West Line",
+				placement : "bottom",
+				html : "false",
+				trigger : "hover"
+			};
+			$("#ewl-filter").tooltip(options);
+			options.title = "Hide/show events on the North-South Line";
+			$("#nsl-filter").tooltip(options);
+			options.title = "Hide/show events on the North-East Line";
+			$("#nel-filter").tooltip(options);
+			options.title = "Hide/show events on the Circle Line";
+			$("#ccl-filter").tooltip(options);
+			options.title = "Hide/show events on the Bukit Panjang LRT";
+			$("#bplrt-filter").tooltip(options);
+			options.title = "Hide/show events on the Punggol LRT";
+			$("#pglrt-filter").tooltip(options);
+		})();
+	</script>
+
+	<script type="text/javascript" src="toastr/toastr.js"></script>
+
+	<!-- BEGIN js for tweet button -->
+	<script>
+		!function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (!d.getElementById(id)) {
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "//platform.twitter.com/widgets.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}
+		}(document, "script", "twitter-wjs");
+	</script>
+	<!-- END js for tweet button -->
+	<!-- BEGIN js for google +1 button -->
+	<script type="text/javascript">
+		(function() {
+			var po = document.createElement('script');
+			po.type = 'text/javascript';
+			po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<!-- END js for google +1 button -->
+
+</body>
+</html>

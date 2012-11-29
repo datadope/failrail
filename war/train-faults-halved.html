@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Map">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta itemprop="name" content="FAILRAIL.sg">
+<meta itemprop="description"
+	content="A timeline of train service disruptions in Singapore, visualized on Google Maps">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FAILRAIL.sg</title>
+
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"
+	type="text/css">
+
+<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css"
+	type="text/css">
+
+<link rel="stylesheet" href="styles/screen.css" type="text/css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push([ '_setAccount', 'UA-28949207-1' ]);
+	_gaq.push([ '_trackPageview' ]);
+
+	(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www')
+				+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+
+<body>
+	<!-- BEGIN code Facebook Social Plugin using XFBML -->
+	<div id="fb-root"></div>
+	<script>
+		// Load the SDK Asynchronously
+		(function(d) {
+			var js, id = 'facebook-jssdk', ref = d
+					.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {
+				return;
+			}
+			js = d.createElement('script');
+			js.id = id;
+			js.async = true;
+			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));
+	</script>
+	<!-- END code Facebook Social Plugin using XFBML -->
+
+
+	<div class="container-fluid">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<a class="brand" href="index.html">FAILRAIL.sg</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li><a href="index.html">Map</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Dashboard <b class="caret"></b>
+						</a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<li><a href="overview.html">Overview</a></li>
+								<li><a href="major-disruptions.html">Major Disruptions</a></li>
+
+								<li class="nav-header">Rail Line</li>
+								<li><a href="line.html">Line Fault</a></li>
+								<li><a href="length-of-delay.html">Length of Delay</a></li>
+							</ul></li>
+						<li class="dropdown active"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Reports <b class="caret"></b>
+						</a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<li class="active"><a href="train-faults-halved.html">Train
+										Faults Halved?</a></li>
+								<li><a href="fines.html">Fine Lines</a></li>
+								<li><a href="ebutton.html">Emergency Button Activations</a></li>
+							</ul></li>
+						<li><a
+							href="https://script.google.com/macros/s/AKfycbyUootM9U5uXo_hcFD3GZXX5RHSOhMN6JvJxfnem2uRg4p78MU/exec"
+							target="_blank">Search</a></li>
+						<li><a href="http://goo.gl/HQrby" target="_blank">Calendar</a></li>
+						<li><a
+							href="https://docs.google.com/folder/d/0B0dFf0ojY-LPeTl5VnpGRzBTTzA/edit"
+							target="_blank">Archive</a></li>
+						<li><a
+							href="https://docs.google.com/spreadsheet/pub?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&output=html"
+							target="_blank">Data</a></li>
+						<li><a href="about.html">About</a></li>
+					</ul>
+					<div id="gplus-button" class="pull-right">
+						<!-- g-plusone button does not display properly if mixed with other css classes -->
+						<div class="g-plusone" data-size="medium"
+							data-href="http://failrailsg.appspot.com/"></div>
+					</div>
+					<div id="tweet-button" class="pull-right">
+						<a href="https://twitter.com/share" class="twitter-share-button"
+							data-url="http://failrailsg.appspot.com/"
+							data-text="FAILRAIL.sg visualizing train service disruptions in Singapore">Tweet</a>
+					</div>
+					<div id="fb-like-button" class="pull-right">
+						<div class="fb-like" data-href="http://failrailsg.appspot.com/"
+							data-send="false" data-layout="button_count"
+							data-show-faces="false"></div>
+					</div>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+		<!-- END of top navbar -->
+
+		<div class="row-fluid">
+			<div class="offset2 span8">
+				<h1>
+					More reliable train services? <small>Get Real</small>
+				</h1>
+				<p class="essay">
+					Contrary to SMRT's <a
+						href="http://www.smrt.com.sg/Portals/0/PDFs/About%20SMRT/Newsroom/2012/LTA%20-%20SMRT%20Joint%20Team%20Release%20_280912.pdf"
+						target="_blank">glowing report</a> that <a
+						href="http://motoring.asiaone.com/Motoring/News/Story/A1Story20120928-374301.html"
+						target="_blank">train faults have been halved</a> on the
+					North-South-East-West lines (NSEWL), our data shows that there has
+					not been any significant reduction in the number of service
+					disruptions nor delay hours over the same period (June - August
+					2012).
+				</p>
+				<p>Key observations:</p>
+				<ul class="essay">
+					<li>There wasn't any significant reduction in train and track
+						faults since May.</li>
+					<li>August was a particularly bad month for the NSEWL.</li>
+					<li>On the East West Line, SMRT has failed to meet the 99.5% <a
+						id="tip-ssa" href="line.html#ssa" target="_blank">System
+							Service Availability</a> (SSA) standard every month since December
+						2011, with exceptions in July and September. The North South Line
+						dipped below the 99.5% SSA in August.
+					</li>
+					<li>Even if train service withdrawals have been halved as SMRT
+						has claimed, the impact to commuters (in terms of time) has
+						worsened as June and August saw longer delay-hours than May.</li>
+				</ul>
+				<p class="essay">
+					<em>There has been a curious spike in the number of <a
+						href="ebutton.html" target="_blank">emergency button
+							activations</a> since September 12, where there can be as many as 9
+						activations in a single day!
+					</em>
+				</p>
+				<div class="alert alert-error spacing-bottom3 justify">
+					<strong>SMRT has not tweeted any delays on the East-West
+						Line, North-South Line and Circle Line since 5 November 2012 (<span
+						id="days-ago"></span> days ago). This is the longest delay-free
+						streak since SMRT started their Twitter account in December 2011.
+						In the meantime, stay tuned for <a
+						href="https://twitter.com/SMRT_Singapore/status/272134672983662594"
+						target="_blank">yet</a> <a
+						href="https://twitter.com/SMRT_Singapore/status/271756712434888704"
+						target="_blank">more</a> <a
+						href="https://twitter.com/SMRT_Singapore/status/268208446485196801"
+						target="_blank">lift</a> <a
+						href="https://twitter.com/SMRT_Singapore/status/267917406746320896"
+						target="_blank">faults</a> and hopefully the real beef will be
+						back right after these <a
+						href="https://twitter.com/SMRT_Singapore/status/270010439176437760"
+						target="_blank">messages</a>.
+					</strong>
+				</div>
+				<hr />
+				<div id="rpt1-dashboard">
+					<div id="rpt1-control1"></div>
+					<div id="rpt1-chart1"></div>
+					<div id="rpt1-chart2"></div>
+				</div>
+				<hr class="footer-line" />
+			</div>
+		</div>
+
+	</div>
+	<!-- END of container -->
+
+	<script type="text/javascript" src="js/failrail.js"></script>
+
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+	<script type="text/javascript">
+		// Loads the Google Visualization libraries, requires jsapi
+		google.load('visualization', '1', {
+			'packages' : [ 'controls' ]
+		});
+		google.setOnLoadCallback(FailRail.Charter.queryReport1);
+	</script>
+
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		// Tooltip options
+		(function pageUI() {
+			var options = {
+				title : "99.5% SSA can afford at most 3 delay hours each month",
+				placement : "top",
+				html : "false",
+				trigger : "hover"
+			};
+			$("#tip-ssa").tooltip(options);
+			$("#days-ago").text(FailRail.Util.daysAgo(new Date(2012, 10, 5)));
+		})();
+	</script>
+
+
+	<!-- js for tweet button -->
+	<script>
+		!function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (!d.getElementById(id)) {
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "//platform.twitter.com/widgets.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}
+		}(document, "script", "twitter-wjs");
+	</script>
+
+	<!-- js for google +1 button -->
+	<script type="text/javascript">
+		(function() {
+			var po = document.createElement('script');
+			po.type = 'text/javascript';
+			po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+
+</body>
+</html>

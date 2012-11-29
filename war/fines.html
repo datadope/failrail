@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Map">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta itemprop="name" content="FAILRAIL.sg">
+<meta itemprop="description"
+	content="A timeline of train service disruptions in Singapore, visualized on Google Maps">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FAILRAIL.sg</title>
+
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"
+	type="text/css">
+
+<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css"
+	type="text/css">
+
+<link rel="stylesheet" href="styles/screen.css" type="text/css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push([ '_setAccount', 'UA-28949207-1' ]);
+	_gaq.push([ '_trackPageview' ]);
+
+	(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www')
+				+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+
+<body>
+	<!-- BEGIN code Facebook Social Plugin using XFBML -->
+	<div id="fb-root"></div>
+	<script>
+		// Load the SDK Asynchronously
+		(function(d) {
+			var js, id = 'facebook-jssdk', ref = d
+					.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {
+				return;
+			}
+			js = d.createElement('script');
+			js.id = id;
+			js.async = true;
+			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));
+	</script>
+	<!-- END code Facebook Social Plugin using XFBML -->
+
+
+	<div class="container-fluid">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<a class="brand" href="index.html">FAILRAIL.sg</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li><a href="index.html">Map</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Dashboard <b class="caret"></b>
+						</a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<li><a href="overview.html">Overview</a></li>
+								<li><a href="major-disruptions.html">Major Disruptions</a></li>
+															
+								<li class="nav-header">Rail Line</li>
+								<li><a href="line.html">Line Fault</a></li>
+								<li><a href="length-of-delay.html">Length of Delay</a></li>
+							</ul></li>
+						<li class="dropdown active"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Reports <b class="caret"></b>
+						</a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<li><a href="train-faults-halved.html">Train Faults
+										Halved?</a></li>
+								<li class="active"><a href="fines.html">Fine Lines</a></li>
+								<li><a href="ebutton.html">Emergency Button Activations</a></li>
+							</ul></li>
+						<li><a
+							href="https://script.google.com/macros/s/AKfycbyUootM9U5uXo_hcFD3GZXX5RHSOhMN6JvJxfnem2uRg4p78MU/exec"
+							target="_blank">Search</a></li>
+						<li><a
+							href="http://goo.gl/HQrby"
+							target="_blank">Calendar</a></li>
+						<li><a
+							href="https://docs.google.com/folder/d/0B0dFf0ojY-LPeTl5VnpGRzBTTzA/edit"
+							target="_blank">Archive</a></li>
+						<li><a
+							href="https://docs.google.com/spreadsheet/pub?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&output=html"
+							target="_blank">Data</a></li>
+						<li><a href="about.html">About</a></li>
+					</ul>
+					<div id="gplus-button" class="pull-right">
+						<!-- g-plusone button does not display properly if mixed with other css classes -->
+						<div class="g-plusone" data-size="medium"
+							data-href="http://failrailsg.appspot.com/"></div>
+					</div>
+					<div id="tweet-button" class="pull-right">
+						<a href="https://twitter.com/share" class="twitter-share-button"
+							data-url="http://failrailsg.appspot.com/"
+							data-text="FAILRAIL.sg visualizing train service disruptions in Singapore">Tweet</a>
+					</div>
+					<div id="fb-like-button" class="pull-right">
+						<div class="fb-like" data-href="http://failrailsg.appspot.com/"
+							data-send="false" data-layout="button_count"
+							data-show-faces="false"></div>
+					</div>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+		<!-- END of top navbar -->
+
+		<div id="fines-dashboard">
+			<div class="row-fluid">
+				<div class="offset2 span8">
+					<h1>
+						Fine Lines <small>a fine history of Singapore's metro</small>
+					</h1>
+					<p class="essay">
+						Under the Licensing and Operating Agreement (LOA) between the Land
+						Transport Authority (LTA) and the service operators, SMRT and SBS
+						Transit are required to adhere to the Operating Performance
+						Standards (OPS) for service quality, safety and maintenance. Most
+						notably, the OPS determines the severity of service disruptions as
+						delays affecting more than <strong><a
+							href="http://app.mot.gov.sg/News_Centre/Latest_News/NewsID/52910FFF4CF62839/Written_Reply_by_Transport_Minister_Lui_Tuck_Yew_to_Parliamentary_Question_on_Operating_Performance.aspx"
+							target="_blank">20,000 persons</a></strong> per incident.
+					</p>
+					<p class="essay">
+						Clause 10(2) of the LOA states that if the service operator fails
+						to meet the OPS, it is liable to pay a penalty as imposed by LTA,
+						up to a maximum of S$1 million. In calculating the penalty to be
+						paid, LTA shall consider mitigating factors such as constraints of
+						the relevant working network and infrastructure as well as
+						passenger intervention, which are beyond the service operator's
+						control (<a
+							href="http://app.mot.gov.sg/News_Centre/Highlights/VID/452910002CF93700/COI_Report_on_Disruption_of_Train_Services.aspx"
+							target="_blank">Committee of Inquiry report</a>, <em>p. 26, para. 78</em>).
+					</p>
+					<p>The service operators were fined for failing to meet the
+						OPS:</p>
+					<ol class="essay list-spacing">
+						<li>SMRT was fined a total of <a
+							href="http://sg.news.yahoo.com/smrt-slapped-with-maximum-fine-of-s-2-million-for-december-breakdowns.html"
+							target="_blank">$2 million</a> for two major disruptions on the
+							North-South Line in December 2011, which affected 221,000
+							commuters. This marks the first time that the maximum penalty of
+							$1 million per incident was meted out to a service operator under
+							the Rapid Transit Systems Act.
+						</li>
+						<li>SBS Transit was fined <a
+							href="http://sg.news.yahoo.com/sbs-transit-to-face--400-000-fine-for-nel-disruption.html"
+							target="_blank">$400,000</a> for a major disruption on the
+							North-East Line in March 2012, which lasted 11 hours and affected
+							117,000 commuters. This is SBS Transit's first and only fine since it
+							started rail operations in 2003.
+						</li>
+						<li>SMRT was fined <a
+							href="http://newspapers.nl.sg/Digitised/Article/today20080404-1.2.9.4.aspx"
+							target="_blank">$387,176</a> for a major disruption on the
+							East-West Line in January 2008, which lasted 7 hours and affected
+							57,000 commuters.
+						</li>
+						<li>In 2002, SMRT was fined <a
+							href="http://newspapers.nl.sg/Digitised/Article/today20021122-1.2.11.5.aspx"
+							target="_blank">$10,000</a> when the Bukit Panjang LRT failed to
+							meet the 99.7 percent service availability standard.
+						</li>
+						<li>In 2001, SMRT was fined <a
+							href="http://newspapers.nl.sg/Digitised/Article/today20020509-2.2.4.9.aspx"
+							target="_blank">$10,000</a> when the Bukit Panjang LRT service
+							broke down six times in nine months.
+						</li>
+						<li>SMRT was fined <a
+							href="http://newspapers.nl.sg/Digitised/Article/today20001120-1.2.5.6.aspx"
+							target="_blank">$10,000</a> for a train collision on the Bukit
+							Panjang LRT in November 2000. 3 people were hurt and the power
+							rail at Phoenix station was damaged. This was the first fine ever
+							to be meted out to a service operator.
+						</li>
+						<li><em>LTA is currently investigating the train <a
+								href="http://sg.news.yahoo.com/power-fault-on-nel-line-causes-early-morning-peak-hour-delay-20120817.html"
+								target="_blank">breakdown on the North-East Line</a> in August
+								2012.
+						</em></li>
+					</ol>
+
+					<hr />
+					<div id="fines-control1"></div>
+
+					<div id="fines-chart1"></div>
+					<p>Observations:</p>
+					<ul class="essay list-spacing">
+						<li>The big ones hit after 2010, they are getting bigger and
+							so are the fines.</li>
+						<li>The $387,176 fine was record-breaking in 2008 as it was a
+							much larger amount than the $10,000 fines in the past.
+							Unfortunately, the stick was not big enough to deter SMRT from
+							its profit-making binge. In fact, it was business as usual;
+							SMRT's repair and maintenance cost per train-km remained fairly
+							constant from 2003 to 2011 (<a
+							href="http://app.mot.gov.sg/News_Centre/Highlights/VID/452910002CF93700/COI_Report_on_Disruption_of_Train_Services.aspx"
+							target="_blank">Committee of Inquiry report</a>, <em>Ch.1-7,
+								Figure 41</em>).
+						</li>
+						<li>Why were the service operators not penalized for major
+							disruptions affecting more than 20,000 commuters (green bubbles),
+							as spelt out in the OPS? For example, the service disruption
+							between Dhoby Ghaut and Harbourfront in July 2006 (North-East
+							Line) and the service disruption between Marymount and Dhoby
+							Ghaut in September 2011 (Circle Line).</li>
+						<li>The public will be very surprised if LTA does not levy a
+							fine for the service disruption on the North-East Line in August
+							2012 (green bubble on the top right). It was an exceptionally
+							long delay, although SBS Transit did not disclose the number of
+							commuters affected. Investigations are ongoing.</li>
+					</ul>
+					
+					<a id="tip-sort-columns" href="#tip-sort-columns" class="btn">Chart
+						Data <i class="icon-resize-vertical"></i>
+					</a>
+					<div id="fines-chart2"></div>
+					<hr class="footer-line" />
+				</div>
+			</div>
+		</div>
+		<!-- END of dashboard container -->
+
+	</div>
+	<!-- END of layout container -->
+
+	<script type="text/javascript" src="js/failrail.js"></script>
+
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+	<script type="text/javascript">
+		// Loads the Google Visualization libraries, requires jsapi
+		google.load('visualization', '1', {
+			'packages' : [ 'controls' ]
+		});
+		google.setOnLoadCallback(function() {
+			FailRail.Charter.majorDisruptions('report');
+		});
+	</script>
+
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		// Tooltip options
+		(function uiHints() {
+			var options = {
+				title : "Amount of fine imposed by the government regulator",
+				placement : "right",
+				html : "false",
+				trigger : "hover"
+			};
+			$("#fines-control1").tooltip(options);
+
+			options.title = "Click on the table columns to sort the data";
+			$("#tip-sort-columns").tooltip(options);
+		})();
+	</script>
+
+	<!-- js for tweet button -->
+	<script>
+		!function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (!d.getElementById(id)) {
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "//platform.twitter.com/widgets.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}
+		}(document, "script", "twitter-wjs");
+	</script>
+
+	<!-- js for google +1 button -->
+	<script type="text/javascript">
+		(function() {
+			var po = document.createElement('script');
+			po.type = 'text/javascript';
+			po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+
+</body>
+</html>

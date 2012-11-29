@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Map">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta itemprop="name" content="FAILRAIL.sg">
+<meta itemprop="description"
+	content="A timeline of train service disruptions in Singapore, visualized on Google Maps">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FAILRAIL.sg</title>
+
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"
+	type="text/css">
+
+<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css"
+	type="text/css">
+
+<link rel="stylesheet" href="styles/screen.css" type="text/css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push([ '_setAccount', 'UA-28949207-1' ]);
+	_gaq.push([ '_trackPageview' ]);
+
+	(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www')
+				+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+
+<body>
+	<!-- BEGIN code Facebook Social Plugin using XFBML -->
+	<div id="fb-root"></div>
+	<script>
+		// Load the SDK Asynchronously
+		(function(d) {
+			var js, id = 'facebook-jssdk', ref = d
+					.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {
+				return;
+			}
+			js = d.createElement('script');
+			js.id = id;
+			js.async = true;
+			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));
+	</script>
+	<!-- END code Facebook Social Plugin using XFBML -->
+
+
+	<div class="container-fluid">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<a class="brand" href="index.html">FAILRAIL.sg</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li><a href="index.html">Map</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Dashboard <b class="caret"></b>
+						</a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<li><a href="overview.html">Overview</a></li>
+								<li><a href="major-disruptions.html">Major Disruptions</a></li>
+
+								<li class="nav-header">Rail Line</li>
+								<li><a href="line.html">Line Fault</a></li>
+								<li><a href="length-of-delay.html">Length of Delay</a></li>
+							</ul></li>
+						<li class="dropdown active"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Reports <b class="caret"></b>
+						</a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<li><a href="train-faults-halved.html">Train Faults
+										Halved?</a></li>
+								<li><a href="fines.html">Fine Lines</a></li>
+								<li class="active"><a href="ebutton.html">Emergency
+										Button Activations</a></li>
+							</ul></li>
+						<li><a
+							href="https://script.google.com/macros/s/AKfycbyUootM9U5uXo_hcFD3GZXX5RHSOhMN6JvJxfnem2uRg4p78MU/exec"
+							target="_blank">Search</a></li>
+						<li><a href="http://goo.gl/HQrby" target="_blank">Calendar</a></li>
+						<li><a
+							href="https://docs.google.com/folder/d/0B0dFf0ojY-LPeTl5VnpGRzBTTzA/edit"
+							target="_blank">Archive</a></li>
+						<li><a
+							href="https://docs.google.com/spreadsheet/pub?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&output=html"
+							target="_blank">Data</a></li>
+						<li><a href="about.html">About</a></li>
+					</ul>
+					<div id="gplus-button" class="pull-right">
+						<!-- g-plusone button does not display properly if mixed with other css classes -->
+						<div class="g-plusone" data-size="medium"
+							data-href="http://failrailsg.appspot.com/"></div>
+					</div>
+					<div id="tweet-button" class="pull-right">
+						<a href="https://twitter.com/share" class="twitter-share-button"
+							data-url="http://failrailsg.appspot.com/"
+							data-text="FAILRAIL.sg visualizing train service disruptions in Singapore">Tweet</a>
+					</div>
+					<div id="fb-like-button" class="pull-right">
+						<div class="fb-like" data-href="http://failrailsg.appspot.com/"
+							data-send="false" data-layout="button_count"
+							data-show-faces="false"></div>
+					</div>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+		<!-- END of top navbar -->
+
+		<div class="row-fluid">
+			<div class="offset2 span8">
+				<h1>
+					Emergency Button Activations <small>malaise or monkeys
+						onboard?</small>
+				</h1>
+				<p class="essay lead">
+					The curious phenomenon of spamming the <a
+						href="http://www.smrt.com.sg/RiderGuide/Safety/WhentakingtheMRT.aspx"
+						target="_blank">emergency-communication button (ECB)</a>, which
+					has occurred <a
+						href="https://docs.google.com/spreadsheet/pub?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&single=true&gid=11&output=html"
+						target="_blank">73 times over 19 consecutive days</a> in September
+					2012. If a $5,000 fine was issued for every case, SMRT would have
+					collected a total windfall of $365,000! Is SMRT following Netflix's
+					footsteps in recruiting their own <a
+						href="http://techblog.netflix.com/2011/07/netflix-simian-army.html"
+						target="_blank">Simian Army</a>?
+				</p>
+				<div class="alert alert-error spacing-bottom3 justify">
+					<strong>SMRT has not tweeted any emergency-communication
+						button (ECB) activations since 5 November 2012 (<span
+						id="days-ago"></span> days ago). Tweets on ECB activations first
+						appeared on 12 September 2012, with the aim to "<a
+						href="http://motoring.asiaone.com/print/Motoring/News/Story/A1Story20121004-375362.html"
+						target="_blank">educate passengers</a> on why trains are held at
+						the stations at times". Has SMRT decided that the public has
+						received enough education, or is it becoming an inconvenient
+						truth?
+					</strong>
+				</div>
+				<p class="essay">
+					SMRT reported a total of 165 ECB activations in July, 142 in August
+					and 127 in September. Only 58% of the cases in September (73) were
+					duly tweeted. In contrast with the high volume of ECB activations
+					on SMRT trains, SBS Transit receives about 30 cases every month. <a
+						href="http://motoring.asiaone.com/Motoring/News/Story/A1Story20121004-375362.html"
+						target="_blank">[AsiaOne, 4 October 2012]</a>
+				</p>
+				<p class="essay">
+					SMRT operates four rail lines whereas SBS Transit operates two.
+					While this may seem to explain the much higher volume of ECB
+					activations experienced by SMRT, <a
+						href="http://app.mot.gov.sg/News_Centre/Latest_News/NewsID/3081BFFF3CF62838/Written_Reply_by_Transport_Minister_Lui_Tuck_Yew_to_Parliamentary_Question_on_Maintenance_Regime_an.aspx"
+						target="_blank">Table 1: Average ridership per car-km</a> of a
+					parliamentary reply dated May 2012 shows that both service
+					operators are increasingly comparable in terms of ridership. Hence,
+					either SMRT or SBS Transit is getting a disproportionately high/low
+					volume of ECB activations.
+				</p>
+				<p class="essay">
+					Pressing the ECB in a non-emergency situation results in a short
+					delay, because the system needs to be 'reset' before the train can
+					resume normal service. While a few minutes of delay may seem
+					trivial, every second counts in the context of <a id="tip-headway"
+						href="http://en.wikipedia.org/wiki/Headway" target="_blank">train
+						headways</a>. If not, why would the service operators be struggling to
+					<a
+						href="http://app.mot.gov.sg/News_Centre/Latest_News/NewsID/10949FFF1D179832/Oral_Answer_to_Question_on_running_intervals_for_MRT_trains_during_peak_hours.aspx"
+						target="_blank"> cut train headways to 2 minutes</a> during peak
+					hours? In fact, train headway is a key indicator under the
+					Operating Performance Standards set by LTA. Every train that missed
+					its schedule extends waiting time, resulting in the build-up of
+					crowds on the platform.
+				</p>
+				<h2>The Daily Tally</h2>
+				<div id="ecb-chart1"></div>
+				<div id="ecb-chart2"></div>
+				<p class="essay">The majority of ECB activations is due to
+					unwell passengers but there is also a high incidence of false
+					alarms ("No emergency incident observed"). How many were mischief
+					cases, and were the perpetuators caught? While the service
+					operators can impose a fine of $5,000, is it an operational
+					challenge for a crowded train running on a tight schedule, to
+					identify and apprehend passengers who misuse the ECB?</p>
+				<p class="essay">Current standard operating procedure is to
+					impose a mandatory delay when the ECB is activated. If the train is
+					at the platform, it will be prevented from moving off. If the train
+					is in motion, it will stop at the next station. A mandatory delay
+					is wasteful when there is a false alarm. If the purpose of the ECB
+					is for passengers to communicate with the train officer onboard,
+					why must a mandatory delay be imposed? Although unwell passengers
+					should certainly be attended to by staff, should the entire train
+					be delayed for cases that are not life threatening? Instead of
+					forcing a blanket delay, can the train officer or the Operations
+					Control Centre (OCC) be empowered to lift the delay instruction
+					once the situation is assessed to be a non-emergency?</p>
+				<div id="ecb-chart3"></div>
+				<p class="essay">Unsurprisingly, ECB activations are
+					concentrated during peak hours. Half of the false alarms ("No
+					emergency incident observed") occurred during peak hours i.e. 7am -
+					10am and 5pm - 9pm. This underscores the recommendation to remove
+					the mandatory delay that comes with pressing the ECB.</p>
+				<div id="ecb-chart4"></div>
+				<p class="essay">
+					<small> *Stations not listed in the chart above have not
+						recorded any ECB activations since 12 September 2012.</small>
+				</p>
+				<p class="essay">Jurong East and Dhoby Ghaut stations
+					experienced a noticeably higher volume of ECB activations, in
+					comparison with other key interchanges like City Hall, Raffles
+					Place, Bishan and Paya Lebar where passenger load is also high.</p>
+				<hr class="footer-line" />
+			</div>
+		</div>
+
+	</div>
+	<!-- END of container -->
+
+	<script type="text/javascript" src="js/failrail.js"></script>
+
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+	<script type="text/javascript">
+		// Loads the Google Visualization libraries, requires jsapi
+		google.load('visualization', '1', {
+			'packages' : [ 'controls' ]
+		});
+		google.setOnLoadCallback(function() {
+			FailRail.Charter.emergencyButton('all');
+		});
+	</script>
+
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		// Tooltip options
+		(function pageUI() {
+			var options = {
+				title : "Headway is the time interval between successive trains",
+				placement : "top",
+				html : "false",
+				trigger : "hover"
+			};
+			$("#tip-headway").tooltip(options);
+
+			$("#days-ago").text(FailRail.Util.daysAgo(new Date(2012, 10, 5)));
+
+		})();
+	</script>
+
+	<!-- js for tweet button -->
+	<script>
+		!function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (!d.getElementById(id)) {
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "//platform.twitter.com/widgets.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}
+		}(document, "script", "twitter-wjs");
+	</script>
+
+	<!-- js for google +1 button -->
+	<script type="text/javascript">
+		(function() {
+			var po = document.createElement('script');
+			po.type = 'text/javascript';
+			po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+
+</body>
+</html>

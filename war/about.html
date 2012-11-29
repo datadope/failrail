@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html itemscope itemtype="http://schema.org/Map">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta itemprop="name" content="FAILRAIL.sg">
+<meta itemprop="description"
+	content="A timeline of train service disruptions in Singapore, visualized on Google Maps">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAILRAIL.sg</title>
+
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css"
+	type="text/css">
+<link rel="stylesheet" href="styles/screen.css" type="text/css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push([ '_setAccount', 'UA-28949207-1' ]);
+	_gaq.push([ '_trackPageview' ]);
+
+	(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www')
+				+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+
+<body data-spy="scroll" data-target=".frail-sidebar">
+	<!-- BEGIN code Facebook Social Plugin using XFBML -->
+	<div id="fb-root"></div>
+	<script>
+		// Load the SDK Asynchronously
+		(function(d) {
+			var js, id = 'facebook-jssdk', ref = d
+					.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {
+				return;
+			}
+			js = d.createElement('script');
+			js.id = id;
+			js.async = true;
+			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));
+	</script>
+	<!-- END code Facebook Social Plugin using XFBML -->
+
+
+	<div class="container-fluid">
+		<div class="navbar">
+			<div class="navbar-inner">
+
+				<a class="brand" href="index.html">FAILRAIL.sg</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li><a href="index.html">Map</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Dashboard <b class="caret"></b>
+						</a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<li><a href="overview.html">Overview</a></li>
+								<li><a href="major-disruptions.html">Major Disruptions</a></li>
+
+								<li class="nav-header">Rail Line</li>
+								<li><a href="line.html">Line Fault</a></li>
+								<li><a href="length-of-delay.html">Length of Delay</a></li>
+							</ul></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Reports <b class="caret"></b>
+						</a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<li><a href="train-faults-halved.html">Train Faults
+										Halved?</a></li>
+								<li><a href="fines.html">Fine Lines</a></li>
+								<li><a href="ebutton.html">Emergency Button Activations</a></li>
+							</ul></li>
+						<li><a
+							href="https://script.google.com/macros/s/AKfycbyUootM9U5uXo_hcFD3GZXX5RHSOhMN6JvJxfnem2uRg4p78MU/exec"
+							target="_blank">Search</a></li>
+						<li><a href="http://goo.gl/HQrby" target="_blank">Calendar</a></li>
+						<li><a
+							href="https://docs.google.com/folder/d/0B0dFf0ojY-LPeTl5VnpGRzBTTzA/edit"
+							target="_blank">Archive</a></li>
+						<li><a
+							href="https://docs.google.com/spreadsheet/pub?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&output=html"
+							target="_blank">Data</a></li>
+						<li class="active"><a href="about.html">About</a></li>
+					</ul>
+					<div id="gplus-button" class="pull-right">
+						<!-- g-plusone button does not display properly if mixed with other css classes -->
+						<div class="g-plusone" data-size="medium"
+							data-href="http://failrailsg.appspot.com/"></div>
+					</div>
+					<div id="tweet-button" class="pull-right">
+						<a href="https://twitter.com/share" class="twitter-share-button"
+							data-url="http://failrailsg.appspot.com/"
+							data-text="FAILRAIL.sg visualizing train service disruptions in Singapore">Tweet</a>
+					</div>
+					<div id="fb-like-button" class="pull-right">
+						<div class="fb-like" data-href="http://failrailsg.appspot.com/"
+							data-send="false" data-layout="button_count"
+							data-show-faces="false"></div>
+					</div>
+				</div>
+				<!--/.nav-collapse -->
+
+			</div>
+		</div>
+		<div class="row-fluid frail-about">
+			<div class="span2 frail-sidebar">
+				<ul class="nav nav-list frail-sidenav">
+					<li><a href="#intro"><i class="icon-chevron-right"></i>
+							What's This?</a></li>
+					<li><a href="#background"><i class="icon-chevron-right"></i>
+							Background</a></li>
+					<li><a href="#aboutdata"><i class="icon-chevron-right"></i>
+							Data</a></li>
+					<li><a href="#tech"><i class="icon-chevron-right"></i>
+							Tech & Miscellany</a></li>
+				</ul>
+			</div>
+			<div class="span8">
+				<section id="intro">
+					<h1>What's this?</h1>
+					<p class="lead essay">
+						This site tells the bigger story of a troubled rail network
+						through <a href="http://en.wikipedia.org/wiki/Data_visualization"
+							target="_blank">data visualization</a>. It is inspired by a
+						growing trend of <a
+							href="http://www.journalism.co.uk/news-features/-039-one-hell-of-a-spreadsheet-039--turning-90-000-rows-of-wikileaks-data-into-a-story/s5/a540109/"
+							target="_blank">data journalism</a>; to distil quality
+						information of public interest from raw data. By presenting the
+						data in a usable and visually engaging format, we hope that the
+						right questions will be asked, so that we can take the first step
+						towards greater transparency and accountability.
+					</p>
+					<p class="lead essay">
+						While massive delays and outright downtime hog the limelight with
+						their own <a
+							href="http://sg.news.yahoo.com/coi-hearing--judge-asks-smrt--lta-to-look-at-gauge--crowd-measures.html"
+							target="_blank">courtroom drama</a>, smaller delays also add up
+						and frustrate commuters all the same. This site shows you the ugly
+						side of the long tail, by tracking every train service disruption
+						that is known in the public domain.
+					</p>
+					<h2>Why does it matter?</h2>
+					<p class="essay">
+						While there's no such thing as <a
+							href="http://youtu.be/A6K-U2skg28" target="_blank">total
+							happiness</a> in a public transport system, there is always room for
+						improvement. The authorities should pay earnest attention to the
+						issues at hand, instead of chiding the public for nitpicking on <a
+							href="http://sg.news.yahoo.com/mrt-disruptions-unavoidable--lui-tuck-yew.html"
+							target="_blank">'unavoidable' disruptions</a> and making
+						apple-to-orange comparisons with other metros abroad. Even more
+						frustrating, is the tendency to belittle the impact to commuters
+						by spinning the data in <em>their</em> perspective: commuters do
+						not care that a <a
+							href="http://www.straitstimes.com/microsites/parliament/story/govt-minimise-major-mrt-disruptions-lui-tuck-yew"
+							target="_blank">45-minute disruption</a> accounts for only 0.02
+						percent of the 2.7 million trips made daily.
+					</p>
+					<p class="essay">
+						Putting on an air of confidence with <a
+							href="train-faults-halved.html" target="_blank">self-congratulatory
+							reports</a> does not do anyone a favour. A few minutes of delay may
+						seem trivial, but every second counts in the context of <a
+							id="tip-headway" href="http://en.wikipedia.org/wiki/Headway"
+							target="_blank">train headways</a>. If not, why would the service
+						operators be struggling to <a
+							href="http://app.mot.gov.sg/News_Centre/Latest_News/NewsID/10949FFF1D179832/Oral_Answer_to_Question_on_running_intervals_for_MRT_trains_during_peak_hours.aspx"
+							target="_blank"> cut train headways to 2 minutes</a> during peak
+						hours? In fact, train headway is a key indicator under the
+						Operating Performance Standards set by LTA. Every train that
+						missed its schedule extends waiting time, resulting in the
+						build-up of crowds on the platform - <em>that we do care</em>.
+					</p>
+					<h2>What this site is not</h2>
+					<p class="essay">
+						The site is <em>not</em> a real-time news alert for train service
+						disruptions in Singapore. You can get first-hand information from
+						<a href="https://twitter.com/smrt_singapore" target="_blank">SMRT’s
+							twitter feed</a> or <a
+							href="http://www.sbstransit.com.sg/press/2012-04-11-01.aspx"
+							target="_blank">SBS Transit’s SMS Alert</a> service.
+					</p>
+				</section>
+				<section id="background">
+					<h2>Background</h2>
+					<p class="essay">
+						In the aftermath of two unprecedented <a
+							href="http://app.mot.gov.sg/News_Centre/Latest_News/NewsID/18049FFF2D149332/Ministerial_Statement_on_the_Disruption_of_MRT_Train_Services_on_15_and_17_December_2011.aspx"
+							target="_blank">train service disruptions in December 2011</a>
+						that affected more than 200,000 commuters, Prime Minister Lee
+						Hsien Loong <a
+							href="http://www.pmo.gov.sg/content/pmosite/mediacentre/inthenews/primeminister/2011/December/pm_orders_inquiryastrainsbreakdownagain.html"
+							target="_blank">ordered an inquiry</a> to get to the bottom of
+						the matter. A committee of inquiry (COI) was convened, comprising
+						of three members: Chief District Judge Tan Siong Thye; Director of
+						Prisons Soh Wai Wah and Professor Lim Mong King from the School of
+						Aerospace and Mechanical Engineering at Nanyang Technological
+						University. The inquiry heard the evidence of 116 witnesses over a
+						period of 6 weeks from 16 April to 25 May 2012.
+					</p>
+					<p class="essay">
+						In a strongly worded <a
+							href="http://app.mot.gov.sg/News_Centre/Highlights/VID/452910002CF93700/COI_Report_on_Disruption_of_Train_Services.aspx"
+							target="_blank">358-page report</a>, the COI concluded that both
+						the 15 and 17 December 2011 incidents were preventable. Lapses in
+						the rail maintenance regime were found despite claims to the
+						contrary by the service operator SMRT. No words were minced when
+						the committee said that there "appeared to be a gaping disconnect
+						between what was formally on record and what was happening on the
+						ground … it was particularly difficult to reconcile the seemingly
+						robust maintenance regime with the failure of a significant number
+						of items.”
+					</p>
+					<p class="essay">
+						In one of the most glaring lapses, despite a <a
+							href="http://sg.finance.yahoo.com/q/is?s=S53.SI&annual"
+							target="_blank">sterling profitability record</a> and <a
+							href="http://sg.news.yahoo.com/ex-ceo-defends-smrt%E2%80%99s-maintenance-regime-at-coi.html"
+							target="_blank">repeated assurance</a> from SMRT’s ex-CEO <a
+							href="http://stqaprev.asia1.com.sg/Money/Story/STIStory_249062.html"
+							target="_blank">Saw Phaik Hwa</a> on <a
+							href="http://sg.news.yahoo.com/smrt-to-review-procedures--investigate-outage--ceo.html"
+							target="_blank">maintenance concerns</a>, SMRT <a
+							href="http://en.wikipedia.org/wiki/Single_point_of_failure"
+							target="_blank">had only one</a> Multi-Function Vehicle (MFV) at
+						their disposal to check for rail defects in the North-South and
+						East-West Lines (<a
+							href="https://docs.google.com/spreadsheet/pub?key=0AkdFf0ojY-LPdDA1S2lRSjVmOGVTOUdRb1FDQTJMNlE&output=html"
+							target="_blank">a combined rail length of 90 km</a>).
+						Furthermore, outdated software on the MFV (in use since the early
+						'90s) meant that it could not get reliable readings and a <a
+							href="http://www.channelnewsasia.com/stories/singaporelocalnews/view/1198991/1/.html"
+							target="_blank">cracked mirror</a> on the day of the incident
+						forced a manual check along <a
+							href="http://motoring.asiaone.com/print/Motoring/News/Story/A1Story20120503-343692.html"
+							target="_blank">900 metres of track in 20 minutes</a> on foot.
+					</p>
+					<p class="essay">
+						While SMRT’s maintenance regime had its shortcomings, Transport
+						Minister Lui Tuck Yew acknowledged that both the Ministry of
+						Transport (MOT), as the supervising ministry, and the Land
+						Transport Authority (LTA), as the regulator - had to <a
+							href="http://app.mot.gov.sg/News_Centre/Latest_News/NewsID/451170003D1AA435/Ministerial_Statement_on_the_Governments_Response_to_Report_of_COI_into_the_15_and_17_December_2011.aspx"
+							target="_blank">shoulder their share</a> of responsibility as
+						well.
+					</p>
+					<p class="essay">
+						SMRT was <a
+							href="http://app.lta.gov.sg/corp_press_content.asp?start=d2ll0vrq3cz96cef5wj42dh8j1q3efyo7fup731j33uhs19s6m"
+							target="_blank">fined S$2 million</a> for the December 2011 train
+						service disruptions.
+					</p>
+					<p class="essay">
+						The COI was billed at a <a
+							href="http://sg.news.yahoo.com/smrt--lta-spent-s-10-million-on-coi--hearing.html"
+							target="_blank">S$10 million dollar price tag</a>, to be borne by
+						LTA and SMRT.
+					</p>
+					<p class="essay">SMRT is investing in a S$2-million integrated
+						incident management centre for both train and bus services. The
+						centre will be ready by the end of 2013 and it will allow
+						management to monitor train movements and station crowds via a
+						multi-screen system.</p>
+				</section>
+				<section id="aboutdata">
+					<h2>Where did you get the data?</h2>
+					<p class="essay">
+						Data is collected from online news and the websites of the two
+						rail operators, <a href="http://www.smrt.com.sg/" target="_blank">SMRT</a>
+						and <a href="http://www.sbstransit.com.sg/" target="_blank">SBS
+							Transit</a>, as well as <a href="https://twitter.com/smrt_singapore"
+							target="_blank">SMRT’s Twitter feed</a>. Online sources are
+						preferred because every data point can be linked for citation. The
+						data is stored in a public <a
+							href="https://docs.google.com/spreadsheet/pub?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&output=html"
+							target="_blank">Google Spreadsheet</a>. If you wish to use the
+						dataset, please link back to this site for acknowledgement.
+					</p>
+					<p class="essay">
+						SMRT does not tweet all train service withdrawals, only those that
+						have <a
+							href="http://motoring.asiaone.com/print/Motoring/News/Story/A1Story20121012-377142.html"
+							target="_blank">material impact</a> on commuters. Hence, while
+						complete information on train operating performance is not
+						publicly available, this site's data <em>is a valid</em> subset of
+						the records held tightly to the chest by the service operators.
+						Still, SMRT deserves credit for giving better customer service
+						through transparency. In contrast, SBS Transit does not yet have a
+						Twitter account, and its SMS alert service does not report minor
+						delays -- at times it even has to <a
+							href="https://twitter.com/SMRT_Singapore/status/236359310777659393"
+							target="_blank">piggyback</a> on SMRT's tweets to disseminate
+						important information on developing situations. Consequently, SMRT
+						received <a
+							href="https://twitter.com/SMRT_Singapore/status/236253545064697857"
+							target="_blank">a lot of flak</a> from angry commuters concerning
+						service disruptions not of their own making.
+					</p>
+					<div class="alert alert-error spacing-bottom3 justify">
+						<strong>SMRT has not tweeted any delays on the East-West
+							Line, North-South Line and Circle Line since 5 November 2012 (<span
+							id="days-ago"></span> days ago). This is the longest delay-free
+							streak since SMRT started their Twitter account in December 2011.
+							In the meantime, stay tuned for <a
+							href="https://twitter.com/SMRT_Singapore/status/272134672983662594"
+							target="_blank">yet</a> <a
+							href="https://twitter.com/SMRT_Singapore/status/271756712434888704"
+							target="_blank">more</a> <a
+							href="https://twitter.com/SMRT_Singapore/status/268208446485196801"
+							target="_blank">lift</a> <a
+							href="https://twitter.com/SMRT_Singapore/status/267917406746320896"
+							target="_blank">faults</a> and hopefully the real beef will be
+							back right after these <a
+							href="https://twitter.com/SMRT_Singapore/status/270010439176437760"
+							target="_blank">messages</a>.
+						</strong>
+					</div>
+					<h3>Assumptions</h3>
+					<ul>
+						<li>In lieu of news coverage or official reports from the
+							service operators, the timestamp of SMRT tweets are used as
+							approximations of incident start and end times. Even though the
+							ending tweet will announce normal train operations after a delay,
+							it takes some lag time for the crowds to clear on the trains and
+							platforms, as evident from commuters' angry <a
+							href="https://twitter.com/SMRT_Singapore/status/257629808563998720"
+							target="_blank">responses</a>.
+						</li>
+						<li>If time of recovery is not reported, the duration of the
+							incident is assumed to be 1 minute (a very conservative
+							estimate).</li>
+						<li>The cause of delay may not always be disclosed, such
+							incidents are categorised as "Cause Unknown".</li>
+					</ul>
+					<h3 id="ebutton">Exclusions</h3>
+					<p>The following events are excluded from the dataset, because
+						they are beyond the control of the service operators:</p>
+					<ul>
+						<li>Speed restrictions due to <a
+							href="https://twitter.com/SMRT_Singapore/status/231371006755876864"
+							target="_blank">wet weather</a></li>
+						<li>Passengers <a
+							href="https://twitter.com/SMRT_Singapore/status/233756985093398529"
+							target="_blank">feeling</a> <a
+							href="https://twitter.com/SMRT_Singapore/status/246400990964772864"
+							target="_blank">unwell</a></li>
+						<li>Activation of the <a id="emergency-button-link"
+							href="http://www.smrt.com.sg/RiderGuide/Safety/WhentakingtheMRT.aspx"
+							target="_blank">emergency-communication button (ECB)</a>, which
+							curiously has occurred <a
+							href="https://docs.google.com/spreadsheet/pub?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&single=true&gid=11&output=html"
+							target="_blank">73 times over 19 consecutive days</a> in
+							September 2012. If a $5,000 fine was issued for every case, SMRT
+							would have collected a total windfall of $365,000! Is SMRT
+							following Netflix's footsteps in recruiting their own <a
+							href="http://techblog.netflix.com/2011/07/netflix-simian-army.html"
+							target="_blank">Simian Army</a>?
+						</li>
+					</ul>
+					<a class="btn btn-primary spacing-top1" href="ebutton.html"
+						target="_blank">Learn More <i
+						class="icon-chevron-right icon-white"></i></a>
+					<div id="ecb-chart1"></div>
+					<h3>Archive</h3>
+					<p class="essay">
+						After SMRT revamped its official website in early 2012, they have
+						removed all press releases <a
+							href="http://www.smrt.com.sg/AboutSMRT/Newsroom/2012.aspx"
+							target="_blank">dating before 2009</a>. This site's <a
+							href="https://docs.google.com/folder/d/0B0dFf0ojY-LPeTl5VnpGRzBTTzA/edit"
+							target="_blank">archive</a> has preserved the old docs in Google
+						Drive for posterity.
+					</p>
+
+					<h2>Mentions</h2>
+					<ul>
+						<li>Regional winner of the <a
+							href="http://www.google.com/events/gadc2012/winners/"
+							target="_blank">Google Apps Developer Challenge 2012</a>.
+						</li>
+						<li>Featured in the Straits Times article, <em><a
+								href="http://motoring.asiaone.com/print/Motoring/News/Story/A1Story20121012-377142.html"
+								target="_blank">Better train services? Website doubts it</a></em>, 10
+							October 2012, Home B3. <a
+							href="http://www.unisim.edu.sg/Happenings/Documents/MC2012-264.pdf"
+							target="_blank">[PDF]</a>
+						</li>
+						<li>Swarm Studio's visualization of service disruptions by <a
+							href="http://mrt.disruptions.swarm.is/" target="_blank">time
+								of day</a>. An interesting observation was drawn - delays on the
+							North-South and East-West lines are biased towards peak hours.
+						</li>
+					</ul>
+				</section>
+				<section id="tech">
+					<h2>Tech</h2>
+					<p>This site is built on</p>
+					<ul>
+						<li><a href="http://code.google.com/p/timemap/"
+							target="_blank">Timemap.js</a> (thank you Nick for your generous
+							help and guidance!)</li>
+						<li>Data stored in <a
+							href="https://docs.google.com/spreadsheet/pub?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&output=html"
+							target="_blank">Google Spreadsheet</a></li>
+						<li>Cool charts courtesy of <a
+							href="https://developers.google.com/chart/" target="_blank">Google
+								Chart Tools</a></li>
+						<li>A timeline of train service disruptions represented as a
+							<a
+							href="https://www.google.com/calendar/embed?src=gj5lvmp3ekf4bvm91c3559ajp4%40group.calendar.google.com&ctz=Asia/Singapore"
+							target="_blank">Google Calendar</a> that anyone can subscribe
+						</li>
+						<li>The Search form is developed on <a
+							href="https://developers.google.com/apps-script/overview"
+							target="_blank">Google Apps Script</a>, which is also used to
+							automate jobs like synchronizing the dataset with the Calendar
+						</li>
+						<li><a href="http://twitter.github.com/bootstrap/"
+							target="_blank"> Bootstrap from Twitter</a> and beautiful buttons
+							from <a href="http://charliepark.org/bootstrap_buttons/"
+							target="_blank">charliepark.org</a></li>
+						<li><a href="http://jquery.com/" target="_blank">jQuery</a></li>
+						<li>This site is powered by <a
+							href="https://developers.google.com/appengine/" target="_blank">Google
+								App Engine</a></li>
+					</ul>
+
+				</section>
+				<section id="contactus">
+					<h2>Contact us</h2>
+					<p class="essay">
+						This site is a work in progress and will be expanded over time.
+						The database is certainly not complete and we will need your help
+						to contribute any data that we have missed out or had reported
+						inaccurately. Feedback and comments are most welcome, please send
+						them to <span class="label label-inverse"><i
+							class="icon-envelope icon-white"></i> datadope (at) gmail (dot)
+							com</span>
+					</p>
+				</section>
+				<hr />
+			</div>
+
+
+		</div>
+	</div>
+	<!-- end of layout container -->
+
+	<script type="text/javascript" src="js/failrail.js"></script>
+
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+	<script type="text/javascript">
+		google.load('visualization', '1');
+		google.setOnLoadCallback(FailRail.Charter.emergencyButton);
+	</script>
+
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		// Tooltip options
+		(function pageUI() {
+			var options = {
+				title : "Headway is the time interval between successive trains",
+				placement : "top",
+				html : "false",
+				trigger : "hover"
+			};
+			$("#tip-headway").tooltip(options);
+
+			// Affix navigation sidebar
+			$('.frail-sidenav').affix();
+
+			$("#days-ago").text(FailRail.Util.daysAgo(new Date(2012, 10, 5)));
+		})();
+	</script>
+
+	<!-- BEGIN js for tweet button -->
+	<script>
+		!function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (!d.getElementById(id)) {
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "//platform.twitter.com/widgets.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}
+		}(document, "script", "twitter-wjs");
+	</script>
+	<!-- END js for tweet button -->
+	<!-- BEGIN js for google +1 button -->
+	<script type="text/javascript">
+		(function() {
+			var po = document.createElement('script');
+			po.type = 'text/javascript';
+			po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<!-- END js for google +1 button -->
+
+</body>
+</html>
