@@ -1025,8 +1025,34 @@ FailRail.Charter = {
 
 	},
 
+	smrtTweetFreq : function() {
+		var smrtTweetFreqChart = new google.visualization.ChartWrapper({
+			"containerId" : "smrt-tweet-freq-chart",
+			"chartType" : "ColumnChart",
+			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
+			"query" : "select G, count(A) "
+				+ "where G > date '2011-12-16' "
+				+ "and Z contains 'twitter.com/' "
+				+ "group by G "
+				+ "label count(A) 'Number of Delay Tweets' "
+				+ ", G 'Month and Year' "
+				+ "format G 'MMM yyyy' ",
+			"options" : {
+				"title" : "Number of Train Service Delay Tweets by SMRT",
+				'legend' : {
+					'position' : 'none'
+				},
+				'chartArea' : {
+					'width' : '93%'
+				// max width so that axis text will not be cropped
+				}
+			}
+		});
+		smrtTweetFreqChart.draw();
+	},
+	
+	// Charts for Overview page
 	overview : function() {
-
 		
 		var volumeChart = new google.visualization.ChartWrapper({
 			"containerId" : "chart1",

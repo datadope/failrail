@@ -222,6 +222,19 @@ div#map {
 	margin: 0 0 2em 0;
 }
 
+/* About Page
+********************************************************/
+
+.frail-about #ecb-chart1 {
+	margin: 1em 0 4em 0; /* E-button chart on about page */
+}
+
+#smrt-tweet-freq-chart {
+	width:70em;
+	height:30em;
+	margin: 0 0 0 0;
+}
+
 /* Emergency button activation charts
 ********************************************************/
 
@@ -233,10 +246,6 @@ div#map {
 
 #ecb-chart1 {
 	margin-top: 1em;
-}
-
-.frail-about #ecb-chart1 {
-	margin: 1em 0 4em 0; /* E-button chart on about page */
 }
 
 #ecb-chart2, #ecb-chart3 {

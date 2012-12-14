@@ -311,12 +311,21 @@
 							target="_blank">a lot of flak</a> from angry commuters concerning
 						service disruptions not of their own making.
 					</p>
+
 					<div class="alert alert-error spacing-bottom3 justify">
-						<strong>SMRT has not tweeted any delays on the East-West
-							Line, North-South Line and Circle Line since 5 November 2012 (<span
-							id="days-ago"></span> days ago). This is the longest delay-free
-							streak since SMRT started their Twitter account in December 2011.
-							In the meantime, stay tuned for <a
+						<strong>SMRT's Twitter account is strangely muted on
+							train service delays of late. SMRT has not tweeted any delays on
+							the East-West Line, North-South Line and Circle Line between 5
+							November and 11 December 2012 (36 days). </strong>
+					</div>
+					<p class="essay">
+						Could this be the longest delay-free streak since SMRT started
+						their Twitter account in December 2011? Nada, there wasn't even a
+						single tweet to warn the public about the extended delay on the
+						North-South Line on <a
+							href="http://singaporeseen.stomp.com.sg/stomp/sgseen/this_urban_jungle/1473936/commuters_pack_out_raffles_place_station_due_to_disruption_in.html"
+							target="_blank">7 December 2012</a>. Instead, SMRT is tweeting
+						diligently on <a
 							href="https://twitter.com/SMRT_Singapore/status/272134672983662594"
 							target="_blank">yet</a> <a
 							href="https://twitter.com/SMRT_Singapore/status/271756712434888704"
@@ -324,12 +333,13 @@
 							href="https://twitter.com/SMRT_Singapore/status/268208446485196801"
 							target="_blank">lift</a> <a
 							href="https://twitter.com/SMRT_Singapore/status/267917406746320896"
-							target="_blank">faults</a> and hopefully the real beef will be
-							back right after these <a
+							target="_blank">faults</a>, tourism advice and commercial <a
 							href="https://twitter.com/SMRT_Singapore/status/270010439176437760"
-							target="_blank">messages</a>.
-						</strong>
-					</div>
+							target="_blank">messages</a>. Hopefully, this is not a case of
+						data throttling. SMRT should not renege on their promise to
+						deliver prompt information on delays.
+					</p>
+					<div id="smrt-tweet-freq-chart"></div>
 					<h3>Assumptions</h3>
 					<ul>
 						<li>In lieu of news coverage or official reports from the
@@ -473,7 +483,11 @@
 
 	<script type="text/javascript">
 		google.load('visualization', '1');
-		google.setOnLoadCallback(FailRail.Charter.emergencyButton);
+
+		google.setOnLoadCallback(function() {
+			FailRail.Charter.emergencyButton();
+			FailRail.Charter.smrtTweetFreq();
+		});
 	</script>
 
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
@@ -491,8 +505,6 @@
 
 			// Affix navigation sidebar
 			$('.frail-sidenav').affix();
-
-			$("#days-ago").text(FailRail.Util.daysAgo(new Date(2012, 10, 5)));
 		})();
 	</script>
 
