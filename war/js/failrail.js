@@ -1034,11 +1034,11 @@ FailRail.Charter = {
 				+ "where G > date '2011-12-16' "
 				+ "and Z contains 'twitter.com/' "
 				+ "group by G "
-				+ "label count(A) 'Number of Delay Tweets' "
+				+ "label count(A) 'Number of Train Service Delays Tweeted' "
 				+ ", G 'Month and Year' "
 				+ "format G 'MMM yyyy' ",
 			"options" : {
-				"title" : "Number of Train Service Delay Tweets by SMRT",
+				"title" : "Number of Train Service Delays Tweeted by SMRT",
 				'legend' : {
 					'position' : 'none'
 				},
