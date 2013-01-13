@@ -7,6 +7,15 @@
 	content="A timeline of train service disruptions in Singapore, visualized on Google Maps">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- BEGIN Facebook Open Graph tags -->
+<meta property="og:title" content="FAILRAIL.sg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://failrailsg.appspot.com/" />
+<meta property="og:image" content="" />
+<meta property="og:site_name" content="FAILRAIL.sg" />
+<meta property="fb:app_id" content="108496995971453" />
+<!-- END Facebook Open Graph tags -->
+
 <title>FAILRAIL.sg</title>
 
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"
@@ -39,24 +48,20 @@
 </head>
 
 <body>
-	<!-- BEGIN code Facebook Social Plugin using XFBML -->
+	<!-- BEGIN Javascript SDK for Facebook Like Button HTML5 Plugin -->
 	<div id="fb-root"></div>
 	<script>
-		// Load the SDK Asynchronously
-		(function(d) {
-			var js, id = 'facebook-jssdk', ref = d
-					.getElementsByTagName('script')[0];
-			if (d.getElementById(id)) {
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id))
 				return;
-			}
-			js = d.createElement('script');
+			js = d.createElement(s);
 			js.id = id;
-			js.async = true;
-			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-			ref.parentNode.insertBefore(js, ref);
-		}(document));
+			js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 	</script>
-	<!-- END code Facebook Social Plugin using XFBML -->
+	<!-- END Javascript SDK for Facebook Like Button HTML5 Plugin -->
 
 
 	<div class="container-fluid">
@@ -135,9 +140,9 @@
 					disruptions nor delay hours over the same period (June - August
 					2012). The <a
 						href="http://www.smrt.com.sg/Portals/0/PDFs/About%20SMRT/Newsroom/2012/LTA%20and%20SMRT%20Improve%20Train%20Maintenance%20and%20Incident%20Management.pdf"
-						target="_blank">December report</a> continued the happy chorus, announcing that the train
-					withdrawal rate was reduced from 3.2 (per 100,000 km) in 2011 to
-					2.6 in the second half of 2012.
+						target="_blank">December report</a> continued the happy chorus,
+					announcing that the train withdrawal rate was reduced from 3.2 (per
+					100,000 km) in 2011 to 2.6 in the second half of 2012.
 				</p>
 				<p>Key observations:</p>
 				<ul class="essay">
