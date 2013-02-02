@@ -164,15 +164,13 @@ FailRail.Charter = {
 
 		//
 		query.setQuery("select G, I, count(A) "
-				+ "where G > date '2010-12-31' " + // all data since 2011
-				"and K != 'Door obstruction' " + "group by G, I " + "pivot AA "
+				+ "where G >= date '2011-12-01' " 
+				+ "and K != 'Others' and K != 'Person hit by train' " 
+				+ "group by G, I " + "pivot AA "
 				+ // duration bin
 				"order by G " + // in chronological order
-				"label I 'Rail Line' " + ", G 'Date' " + ", count(A) '' " + // label
-				// as
-				// empty
-				// string
-				"format G 'MMM yyyy'");
+				"label I 'Rail Line' " + ", G 'Date' " + ", count(A) '' " 
+				+ "format G 'MMM yyyy', count(A) '###' ");
 		query.send(FailRail.Charter.lineDelayFrequencyDashboard);
 	},
 
@@ -206,40 +204,7 @@ FailRail.Charter = {
 			}
 		});
 
-		// Filter by date range
-		var dateControl = new google.visualization.ControlWrapper({
-			'controlType' : 'ChartRangeFilter',
-			'containerId' : 'control2',
-			'options' : {
-				// Filter by Date column
-				'filterColumnLabel' : 'Date',
-				'ui' : {
-					'chartType' : 'AreaChart',
-					'chartOptions' : {
-						'chartArea' : {
-							'width' : '95%' // <100% width so that range slider
-						// thumbs can be seen
-						},
-						'hAxis' : {
-							'baselineColor' : 'none'
-						}
-					},
-					// x-axis is column 0, date of event
-					// series 1 is column 3, time length of delay
-					'chartView' : {
-						'columns' : [ 0, 2 ]
-					}
-				}
-			},
-			// Initial selected range
-			'state' : {
-				'range' : {
-					'start' : new Date(2011, 11, 1), // months are
-					// zero-indexed!
-					'end' : new Date(2013, 0, 1)
-				}
-			}
-		});
+		
 
 		// Number of service disruptions by category (month-on-month)
 		var histoChart = new google.visualization.ChartWrapper({
@@ -259,7 +224,9 @@ FailRail.Charter = {
 				// max width so that axis text will not be cropped
 				},
 				'vAxis' : {
-					'title' : 'Number of Service Disruptions'
+					'title' : 'Number of Service Disruptions',
+					// Put maxValue as 4 because there are 4 gridlines
+					'maxValue' : 4
 				},
 				'hAxis' : {
 					'viewWindowMode' : 'maximized'
@@ -282,7 +249,7 @@ FailRail.Charter = {
 		// 'containerId' : 'table-chart'
 		// });
 
-		dashboard.bind([ lineControl, dateControl ], [ histoChart ]);
+		dashboard.bind([ lineControl ], [ histoChart ]);
 
 		dashboard.draw(data);
 	},
@@ -294,11 +261,13 @@ FailRail.Charter = {
 
 		// Left truncate the data to begin Jan 2011
 		query.setQuery("select G, I, count(A), sum(Q)/60 "
-				+ "where G > date '2010-12-31' " + "group by G, I "
+				+ "where G >= date '2011-12-01' " 
+				+ "and K != 'Others' and K != 'Person hit by train' "
+				+ "group by G, I "
 				+ "pivot K " + "order by G " + "label I 'Rail Line"
 				+ "', G 'Date" + "', count(A) '" + // label as empty string
 				"', sum(Q)/60 '" + // label as empty string
-				"' format G 'MMM yyyy', sum(Q)/60 '#,###.#'");
+				"' format G 'MMM yyyy', sum(Q)/60 '#,###.# hours'");
 		query.send(FailRail.Charter.lineFaultTimeSeriesDashboard);
 	},
 
@@ -309,9 +278,6 @@ FailRail.Charter = {
 		var dashboardId = "db-line-faultts";
 
 		var data = response.getDataTable();
-
-		// console.log("FailRail.Charter.drawDashboard2 has been called, DATA: "
-		// + data.toJSON());
 
 		// Create a dashboard.
 		var dashboard = new google.visualization.Dashboard(document
@@ -334,41 +300,6 @@ FailRail.Charter = {
 			}
 		});
 
-		// Filter by date range
-		var dateControl = new google.visualization.ControlWrapper({
-			'controlType' : 'ChartRangeFilter',
-			'containerId' : 'control2',
-			'options' : {
-				// Filter by Date column
-				'filterColumnLabel' : 'Date',
-				'ui' : {
-					'chartType' : 'AreaChart',
-					'chartOptions' : {
-						'chartArea' : {
-							'width' : '95%' // <100% width so that range slider
-						// thumbs can be seen
-						},
-						'hAxis' : {
-							'baselineColor' : 'none'
-						}
-					},
-					// x-axis is column 0, date of event
-					// series 1 is column 3, time length of delay
-					'chartView' : {
-						'columns' : [ 0, 2 ]
-					}
-				}
-			},
-			// Initial selected range
-			'state' : {
-				'range' : {
-					'start' : new Date(2011, 11, 1), // months are
-					// zero-indexed!
-					'end' : new Date(2013, 0, 1)
-				}
-			}
-		});
-
 		// Number of service disruptions by category (month-on-month)
 		var countDisruptionChart = new google.visualization.ChartWrapper(
 				{
@@ -379,11 +310,11 @@ FailRail.Charter = {
 						'legend' : {
 							'position' : 'bottom',
 							'textStyle' : {
-								'fontSize' : 12
+								'fontSize' : 10
 							}
 						},
 						'chartArea' : {
-							'width' : '93%'
+							'width' : '90%'
 						// max width so that axis text will not be cropped
 						},
 						'focusTarget' : 'category',
@@ -394,7 +325,7 @@ FailRail.Charter = {
 					}
 				});
 		countDisruptionChart.setView({
-			'columns' : [ 0, 2, 3, 4, 5, 6, 7, 8, 9 ]
+			'columns' : [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 		});
 
 		// Total delay hours by category (month-on-month)
@@ -406,11 +337,11 @@ FailRail.Charter = {
 				'legend' : {
 					'position' : 'bottom',
 					'textStyle' : {
-						'fontSize' : 12
+						'fontSize' : 10
 					}
 				},
 				'chartArea' : {
-					'width' : '95%'
+					'width' : '90%'
 				// max width so that axis text will not be cropped
 				},
 				'focusTarget' : 'category',
@@ -421,7 +352,7 @@ FailRail.Charter = {
 			}
 		});
 		sumDelayChart.setView({
-			'columns' : [ 0, 10, 11, 12, 13, 14, 15, 16, 17 ]
+			'columns' : [ 0, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
 		});
 
 		/*
@@ -430,7 +361,7 @@ FailRail.Charter = {
 		 * 'containerId' : 'db2-chart3' });
 		 */
 
-		dashboard.bind([ lineControl, dateControl ], [ countDisruptionChart,
+		dashboard.bind([ lineControl ], [ countDisruptionChart,
 				sumDelayChart ]);
 
 		dashboard.draw(data);
@@ -1054,12 +985,15 @@ FailRail.Charter = {
 	// Charts for Overview page
 	overview : function() {
 		
+		// Chart data to exclude suicide attempts,
+		// and Act of God events.
+		
 		var volumeChart = new google.visualization.ChartWrapper({
 			"containerId" : "chart1",
 			"chartType" : "PieChart",
 			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
 			"query" : "select I, count(A) " 
-					+ "where K != 'Door obstruction' "
+					+ "where K != 'Others' "
 					+ "and K != 'Person hit by train' "
 					+ "group by I "
 					+ "order by count(A) desc",
@@ -1080,10 +1014,10 @@ FailRail.Charter = {
 						color : 'red'
 					},
 					2 : {
-						color : 'darkturquoise'
+						color : 'orange'
 					},
 					3 : {
-						color : 'orange'
+						color : 'darkturquoise'
 					},
 					4 : {
 						color : 'purple'
@@ -1099,7 +1033,7 @@ FailRail.Charter = {
 			"chartType" : "PieChart",
 			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
 			"query" : "select I, sum(Q)/60 "
-				+ "where K != 'Door obstruction' "
+				+ "where K != 'Others' "
 				+ "and K != 'Person hit by train' "
 				+ "group by I "
 				+ "order by sum(Q)/60 desc "
@@ -1139,11 +1073,14 @@ FailRail.Charter = {
 			"containerId" : "chart3",
 			"chartType" : "ColumnChart",
 			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
+			
+			// cannot sort count if pivot by Category(K)
+			
 			"query" : "select I, count(A) "
-				+ "where K != 'Door obstruction' "
+				+ "where K != 'Others' "
 				+ "and K != 'Person hit by train' "
 				+ "group by I "
-				+ "pivot K",
+				+ "pivot K ",
 			"options" : {
 				"title" : "Number of service disruptions by category",
 				"vAxis" : {
@@ -1153,7 +1090,7 @@ FailRail.Charter = {
 				'legend' : {
 					'position' : 'bottom',
 					'textStyle' : {
-						'fontSize' : 12
+						'fontSize' : 10
 					}
 				},
 				'chartArea' : {
@@ -1171,13 +1108,13 @@ FailRail.Charter = {
 			"chartType" : "ColumnChart",
 			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
 			"query" : "select I, sum(Q)/60 "
-				+ "where K != 'Door obstruction' "
+				+ "where K != 'Others' "
 				+ "and K != 'Person hit by train' "
 				+ "and Q < 6000 "
 				+ "group by I "
 				+ "pivot K " 
 				+ "label sum(Q)/60 '' " 
-				+ "format sum(Q)/60 '#,###.#'",
+				+ "format sum(Q)/60 '#,###.# hours'",
 			"options" : {
 				"title" : "Cumulative delay hours by category",
 				"vAxis" : {
@@ -1187,7 +1124,7 @@ FailRail.Charter = {
 				'legend' : {
 					'position' : 'bottom',
 					'textStyle' : {
-						'fontSize' : 12
+						'fontSize' : 10
 					}
 				},
 				'chartArea' : {
@@ -1205,9 +1142,8 @@ FailRail.Charter = {
 			"chartType" : "ColumnChart",
 			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
 			"query" : "select I, count(A) "
-				+ "where K != 'Door obstruction' "
+				+ "where K != 'Others' "
 				+ "and K != 'Person hit by train' "
-				//+ "and Q < 6000 "
 				+ "group by I "
 				+ "pivot AA ",
 			"options" : {
@@ -1238,9 +1174,8 @@ FailRail.Charter = {
 			"chartType" : "ColumnChart",
 			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
 			"query" : "select K, count(A) "
-				+ "where K != 'Door obstruction' "
+				+ "where K != 'Others' "
 				+ "and K != 'Person hit by train' "
-				//+ "and Q < 6000 "
 				+ "group by K "
 				+ "pivot AA ",
 			"options" : {
@@ -1248,6 +1183,12 @@ FailRail.Charter = {
 				"vAxis" : {
 					"title" : "Number of service disruptions",
 					"textPosition" : "in"
+				},
+				'hAxis' : {
+					'textPosition' : 'out',
+					'textStyle' : {
+						fontSize : 10
+					}
 				},
 				'legend' : {
 					'position' : 'bottom',
@@ -1271,11 +1212,11 @@ FailRail.Charter = {
 			"chartType" : "ColumnChart",
 			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
 			"query" : "select hour(AB), count(A) "
-				+ "where K != 'Door obstruction' "
+				+ "where K != 'Others' "
 				+ "and K != 'Person hit by train' "
-				//+ "and Q < 6000 "
 				+ "group by hour(AB) "
-				+ "pivot AA ",
+				+ "pivot AA "
+				+ "format hour(AB) '## :hours'",
 			"options" : {
 				"title" : "Length of delay by time of day",
 				"vAxis" : {
@@ -1283,7 +1224,7 @@ FailRail.Charter = {
 					"textPosition" : "in"
 				},
 				"hAxis" : {
-					"title" : "Time of day -- from 00 to 23 Hours",
+					"title" : "Time of day -- from 00:00 to 23:59, following the 24-hour clock",
 					"textPosition" : "out"
 				},
 				'legend' : {
