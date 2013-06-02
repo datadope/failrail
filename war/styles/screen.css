@@ -497,7 +497,7 @@ div#map {
 
 .frail-sidenav .active .icon-chevron-right,.frail-sidenav .active a:hover .icon-chevron-right
 	{
-	background-image: url(../img/glyphicons-halflings-white.png);
+	background-image: url(../bootstrap/img/glyphicons-halflings-white.png);
 	opacity: 1;
 }
 
