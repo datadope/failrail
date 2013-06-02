@@ -28,6 +28,14 @@ local.properties
 # PDT-specific
 .buildpath
 
+# Test pages
+war/example/
+war/basic.html
+war/bootstrap.html
+war/bubblechart.html
+war/db1-line.html
+war/gmapsv3.html
+
 
 #################
 ## Visual Studio
