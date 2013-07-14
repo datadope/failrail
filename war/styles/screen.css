@@ -186,6 +186,9 @@ based on bootstrap, generated from charliepark.org
 	margin-top: .7em;
 }
 
+/* TimeMap
+********************************************************/
+
 /* Fix for Bootstrap issue with Google Maps
 http://stackoverflow.com/questions/9141249/twitter-bootstrap-css-affecting-google-maps 
 https://github.com/twitter/bootstrap/issues/2410
@@ -207,7 +210,7 @@ div.timeline-event-label {
 
 div#timemap {
 	width: 100%;
-	height: 100%;
+	height: 60em;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -218,7 +221,7 @@ div#timemap img {
 
 div#timelinecontainer {
 	width: 100%;
-	height: 20em;
+	height: 35%;
 }
 
 div#timeline {
@@ -230,7 +233,7 @@ div#timeline {
 
 div#mapcontainer {
 	width: 100%;
-	height: 35em;
+	height: 65%;
 }
 
 div#map {
@@ -248,7 +251,23 @@ div#map {
 	/* leave some space for the close button at the top of the window */
 }
 
-/* Generic chart styles
+/* Toastr
+********************************************************/
+
+#toast-container {
+	/* so that toast messages take up less space */
+	font-size: .9em;
+}
+
+.toast-info {
+	/* army uniform #353F3E */
+    background-color: #353F3E;
+}
+
+.toast-message div#event-details {
+}
+
+/* Charts
 ********************************************************/
 
 /* tooltip for date range slider */

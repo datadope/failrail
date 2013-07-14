@@ -167,14 +167,6 @@ $(function() {
 								item.opts.linksHtml = "<div class='pagination'><ul>"
 										+ "<li><a href='#'>Sources</a></li>";
 
-								/*
-								 * item.opts.linksHtml = "<div class='btn-group
-								 * pull-right'>" + "<a class='btn btn-info
-								 * btn-small dropdown-toggle'
-								 * data-toggle='dropdown' href='#'>Read More " + "<span
-								 * class='caret'></span></a>" + "<ul class='dropdown-menu'>";
-								 */
-
 								// tokenize each link from the concat string
 								links = item.opts.Links.split(" ");
 
@@ -362,5 +354,8 @@ $(function() {
 	var gmap = tm.getNativeMap();
 	gmap.mapTypes.set("failrailstyle", styledMapType);
 	gmap.setMapTypeId("failrailstyle");
+	gmap.setOptions({
+		disableDefaultUI : false
+	});
 });
 
