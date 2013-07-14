@@ -582,41 +582,43 @@ FailRail.Charter = {
 		// buses, staff, delay hours, commuters
 		var crisisResponseChart = new google.visualization.ChartWrapper(
 				{
-					'chartType' : 'BubbleChart',
-					'containerId' : 'majord-chart2',
-					'options' : {
-						'title' : 'Crisis Response vs. Impact: Delay Hours (bubble colour), Commuters Affected (bubble size)',
-						'titlePosition' : 'out',
-						'axisTitlesPosition' : 'out',
-						'legend' : {
-							'position' : 'none'
+					"chartType" : "BubbleChart",
+					"containerId" : "majord-chart2",
+					"options" : {
+						"title" : "Crisis Response by Number of Commuters Affected (bubble size), Delay Hours (bubble colour)",
+						"titlePosition" : "out",
+						"axisTitlesPosition" : "out",
+						"legend" : {
+							"position" : "none"
 						},
-						'chartArea' : {
-							'width' : '95%', // so that color legend and axis
-							// titles
-							'height' : '83%' // will not be cropped
+						"chartArea" : {
+							"width" : "95%",
+							"height" : "85%",
+							"top" : 50,
+							"left" : 40
 						},
-						'hAxis' : {
-							'title' : 'Number of Buses Deployed',
-							'textPosition' : 'in',
+						"hAxis" : {
+							"title" : "Number of Buses Deployed",
+							"textPosition" : "in",
 						},
-						'vAxis' : {
-							'title' : 'Number of Staff Deployed',
-							'textPosition' : 'in',
+						"vAxis" : {
+							"title" : "Number of Staff Deployed",
+							"textPosition" : "in",
 						},
-						'sizeAxis' : {
-							'minSize' : 10,
-							'maxSize' : 80
+						"sizeAxis" : {
+							"minSize" : 10,
+							"maxSize" : 80
 						},
-						'colorAxis' : {
-							'colors' : [ '#ff3333' ], // light red
-							'legend' : {
-								'position' : 'top'
+						"colorAxis" : {
+							"colors" : [ "#ff3333" ], // light red
+							"legend" : {
+								"position" : "top",
+								"numberFormat" : "#"
 							}
 						},
-						'bubble' : {
-							'textStyle' : {
-								'fontSize' : 11
+						"bubble" : {
+							"textStyle" : {
+								"fontSize" : 11
 							}
 						}
 					}
@@ -634,42 +636,44 @@ FailRail.Charter = {
 		// Adequacy of the bus bridging service
 		var busChart = new google.visualization.ChartWrapper(
 				{
-					'chartType' : 'BubbleChart',
-					'containerId' : 'majord-chart3',
-					'options' : {
-						'title' : 'Bus Bridging Service vs. Impact: Commuters Affected (bubble colour), Delay Hours (bubble size)',
-						'titlePosition' : 'out',
-						'axisTitlesPosition' : 'out',
-						'legend' : {
-							'position' : 'none'
+					"chartType" : "BubbleChart",
+					"containerId" : "majord-chart3",
+					"options" : {
+						"title" : "Bus Bridging Service by Number of Commuters Affected (bubble size), Delay Hours (bubble colour)",
+						"titlePosition" : "out",
+						"axisTitlesPosition" : "out",
+						"legend" : {
+							"position" : "top"
 						},
-						'chartArea' : {
-							'width' : '95%', // so that legend and axis
-							// titles will
-							'height' : '83%' // not be cropped
+						"chartArea" : {
+							"width" : "95%",
+							"height" : "85%",
+							"top" : 50,
+							"left" : 40
 						},
-						'hAxis' : {
-							'title' : 'Year',
-							'textPosition' : 'in',
-							'format' : 'yyyy'
+						"hAxis" : {
+							"title" : "Year",
+							"textPosition" : "in",
+							"format" : "yyyy"
 						},
-						'vAxis' : {
-							'title' : 'Number of Buses Deployed',
-							'textPosition' : 'in',
+						"vAxis" : {
+							"title" : "Number of Buses Deployed",
+							"textPosition" : "in",
 						},
-						'sizeAxis' : {
-							'minSize' : 10,
-							'maxSize' : 80
+						"sizeAxis" : {
+							"minSize" : 10,
+							"maxSize" : 80
 						},
-						'colorAxis' : {
-							'colors' : [ '#ff3333' ], // light red
-							'legend' : {
-								'position' : 'top'
+						"colorAxis" : {
+							"colors" : [ "#ff3333" ], // light red
+							"legend" : {
+								"position" : "top",
+								"numberFormat" : "#"
 							}
 						},
-						'bubble' : {
-							'textStyle' : {
-								'fontSize' : 11
+						"bubble" : {
+							"textStyle" : {
+								"fontSize" : 11
 							}
 						}
 					}
@@ -686,35 +690,35 @@ FailRail.Charter = {
 
 		var timeChart = new google.visualization.ChartWrapper(
 				{
-					'chartType' : 'BubbleChart',
-					'containerId' : 'majord-chart1',
-					'options' : {
-						'title' : 'Time Series of Major Disruptions vs. Fault Type (bubble colour), Commuters Affected (bubble size)',
-						'titlePosition' : 'out',
-						'axisTitlesPosition' : 'out',
-						'legend' : {
-							'position' : 'top'
+					"chartType" : "BubbleChart",
+					"containerId" : "majord-chart1",
+					"options" : {
+						"title" : "Time Series of Major Disruptions vs. Fault Type (bubble colour), Commuters Affected (bubble size)",
+						"legend" : {
+							"position" : "top"
 						},
-						'chartArea' : {
-							'width' : '95%',
-							'height' : '85%'
+						"chartArea" : {
+							"width" : "95%",
+							"height" : "85%",
+							"top" : 40,
+							"left" : 40
 						},
-						'hAxis' : {
-							'title' : 'Year',
-							'textPosition' : 'in',
-							'format' : 'yyyy'
+						"hAxis" : {
+							"title" : "Year",
+							"textPosition" : "in",
+							"format" : "yyyy"
 						},
-						'vAxis' : {
-							'title' : 'Length of Delay (Hours)',
-							'textPosition' : 'in',
+						"vAxis" : {
+							"title" : "Length of Delay (Hours)",
+							"textPosition" : "in",
 						},
-						'sizeAxis' : {
-							'minSize' : 10,
-							'maxSize' : 80
+						"sizeAxis" : {
+							"minSize" : 10,
+							"maxSize" : 80
 						},
-						'bubble' : {
-							'textStyle' : {
-								'fontSize' : 11
+						"bubble" : {
+							"textStyle" : {
+								"fontSize" : 11
 							}
 						}
 					}

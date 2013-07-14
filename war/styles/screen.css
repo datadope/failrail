@@ -390,16 +390,9 @@ div#map {
 
 /* Dashboard: Major Disruptions
 ********************************************************/
-#majord-control1 {
-	margin: 1em 0 1em 0;
-}
 
-#majord-control2,#majord-control3,#majord-control4,#majord-control5 {
-	margin: 1em 0 1em 1em;
-}
-
-#majord-chart1,#majord-chart2,#majord-chart3,#majord-chart4 {
-	width: 70em;
+#majord-control1,#majord-control2,#majord-control3,#majord-control4,#majord-control5 {
+	margin: 1em 1em 1em 0;
 }
 
 #majord-chart2,#majord-chart3,#majord-dashboard #tip-sort-columns {
@@ -407,11 +400,13 @@ div#map {
 }
 
 #majord-chart1,#majord-chart2,#majord-chart3 {
-	height: 40em; /* min height for edge bubbles not to be cropped */
+	margin: 2em 0 2em 0;
+	height: 35em; /* min height for edge bubbles not to be cropped */
 }
 
 #majord-chart4 {
-	margin: 1em 0 2em 0;
+	margin: 4em 0 0 0;
+	height: 50em;
 }
 
 /* Report: Fine Lines
