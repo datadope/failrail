@@ -439,15 +439,20 @@ div#map {
 
 /* Dashboard: Overview
 ********************************************************/
-.overview #chart1,.overview #chart2 {
-	width: 30em;
+.overview #chart4,.overview #chart5 {
 	height: 15em;
+	margin: 1em 0 2em 0;
 }
 
-.overview #chart3,.overview #chart4,.overview #chart5,.overview #chart6,.overview #chart7
+.overview #chart1,.overview #chart2,.overview #chart6,.overview #chart7
 	{
-	width: 70em;
-	height: 30em;
+	height: 25em;
+	margin: 0 0 2em 0;
+}
+
+.overview #chart3 {
+	height: 35em;
+	margin: 0 0 2em 0;
 }
 
 /* Sidenav (adapted from Bootstrap docs)

@@ -985,23 +985,26 @@ FailRail.Charter = {
 	// Charts for Overview page
 	overview : function() {
 		
-		// Chart data to exclude suicide attempts,
+		// Chart data excludes suicide attempts,
+		// maintenance/upgrading works
 		// and Act of God events.
 		
 		var volumeChart = new google.visualization.ChartWrapper({
-			"containerId" : "chart1",
+			"containerId" : "chart4",
 			"chartType" : "PieChart",
 			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
 			"query" : "select I, count(A) " 
 					+ "where K != 'Others' "
 					+ "and K != 'Person hit by train' "
+					+ "and K != 'Maintenance/Upgrading' "
 					+ "group by I "
 					+ "order by count(A) desc",
 			"options" : {
 				"title" : "Share of Service Disruptions By Rail Line",
 				"chartArea" : {
-					"width" : "90%",
-					"height" : "85%"
+					"width" : "100%",
+					"height" : "100%",
+					"top" : 25
 				},
 				"legend" : {
 					"position" : "right"
@@ -1029,39 +1032,41 @@ FailRail.Charter = {
 		volumeChart.draw();
 
 		durationChart = new google.visualization.ChartWrapper({
-			"containerId" : "chart2",
+			"containerId" : "chart5",
 			"chartType" : "PieChart",
 			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
 			"query" : "select I, sum(Q)/60 "
 				+ "where K != 'Others' "
 				+ "and K != 'Person hit by train' "
+				+ "and K != 'Maintenance/Upgrading' "
 				+ "group by I "
 				+ "order by sum(Q)/60 desc "
 				+ "format sum(Q)/60 '#,###.#'",
 			"options" : {
 				"title" : "Share of Delay Hours By Rail Line",
 				"chartArea" : {
-					"width" : "90%",
-					"height" : "85%"
-				},
+					"width" : "100%",
+					"height" : "100%",
+					"top" : 25
+				}, 
 				"legend" : {
 					"position" : "right"
 				},
 				"slices" : {
 					0 : {
-						color : 'darkturquoise'
+						color : "red"
 					},
 					1 : {
-						color : 'green'
+						color : "darkturquoise"
 					},
 					2 : {
-						color : 'red'
+						color : "green"
 					},
 					3 : {
-						color : 'purple'
+						color : "purple"
 					},
 					4 : {
-						color : 'orange'
+						color : "orange"
 					}
 				},
 				"pieSliceText" : "value",
@@ -1070,7 +1075,7 @@ FailRail.Charter = {
 		durationChart.draw();
 		
 		categoryVolumeChart = new google.visualization.ChartWrapper({
-			"containerId" : "chart3",
+			"containerId" : "chart6",
 			"chartType" : "ColumnChart",
 			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
 			
@@ -1079,167 +1084,191 @@ FailRail.Charter = {
 			"query" : "select I, count(A) "
 				+ "where K != 'Others' "
 				+ "and K != 'Person hit by train' "
+				+ "and K != 'Maintenance/Upgrading' "
 				+ "group by I "
 				+ "pivot K ",
 			"options" : {
-				"title" : "Number of service disruptions by category",
-				"vAxis" : {
-					"title" : "Number of Service Disruptions",
-					"textPosition" : "in"
-				},
-				'legend' : {
-					'position' : 'bottom',
-					'textStyle' : {
-						'fontSize' : 10
+				"title" : "Number of Service Disruptions by Category",
+				"hAxis" : {
+					"textStyle" : {
+						"fontSize" : 14
 					}
 				},
-				'chartArea' : {
-					'width' : '95%'
-				// max width so that axis text will not be cropped
+				"vAxis" : {
+					"title" : "",
+					"textPosition" : "in"
 				},
-				'focusTarget' : 'category',
-				'isStacked' : false
+				"legend" : {
+					"position" : "top",
+					"textStyle" : {
+						"fontSize" : 12
+					}
+				},
+				"chartArea" : {
+					"width" : "100%",
+					"height" : "80%",
+					"top" : 45,
+					"left" : 0
+				},
+				"focusTarget" : "category",
+				"isStacked" : false
 			}
 		});
 		categoryVolumeChart.draw();
 		
 		categoryDurationChart = new google.visualization.ChartWrapper({
-			"containerId" : "chart4",
+			"containerId" : "chart7",
 			"chartType" : "ColumnChart",
 			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
 			"query" : "select I, sum(Q)/60 "
 				+ "where K != 'Others' "
 				+ "and K != 'Person hit by train' "
+				+ "and K != 'Maintenance/Upgrading' "
 				+ "and Q < 6000 "
 				+ "group by I "
 				+ "pivot K " 
 				+ "label sum(Q)/60 '' " 
 				+ "format sum(Q)/60 '#,###.# hours'",
 			"options" : {
-				"title" : "Cumulative delay hours by category",
-				"vAxis" : {
-					"title" : "Delay Hours",
-					"textPosition" : "in"
-				},
-				'legend' : {
-					'position' : 'bottom',
-					'textStyle' : {
-						'fontSize' : 10
+				"title" : "Cumulative Delay Hours by Category",
+				"hAxis" : {
+					"textStyle" : {
+						"fontSize" : 14
 					}
 				},
-				'chartArea' : {
-					'width' : '95%'
-				// max width so that axis text will not be cropped
+				"vAxis" : {
+					"title" : "",
+					"textPosition" : "in"
 				},
-				'focusTarget' : 'category',
-				'isStacked' : false
+				"legend" : {
+					"position" : "top",
+					"textStyle" : {
+						"fontSize" : 12
+					}
+				},
+				"chartArea" : {
+					"width" : "100%",
+					"height" : "80%",
+					"top" : 45,
+					"left" : 0
+				},
+				"focusTarget" : "category",
+				"isStacked" : false
 			}
 		});
 		categoryDurationChart.draw();
 		
 		durationHistogram = new google.visualization.ChartWrapper({
-			"containerId" : "chart5",
+			"containerId" : "chart2",
 			"chartType" : "ColumnChart",
 			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
 			"query" : "select I, count(A) "
 				+ "where K != 'Others' "
 				+ "and K != 'Person hit by train' "
+				+ "and K != 'Maintenance/Upgrading' "
 				+ "group by I "
 				+ "pivot AA ",
 			"options" : {
-				"title" : "Length of delay by rail line",
+				"title" : "Number of Service Disruptions by Length of Delay",
 				"vAxis" : {
-					"title" : "Number of service disruptions",
+					"title" : "",
 					"textPosition" : "in"
 				},
-				'legend' : {
-					'position' : 'bottom',
-					'textStyle' : {
-						'fontSize' : 12
+				"legend" : {
+					"position" : "top",
+					"textStyle" : {
+						"fontSize" : 12
 					}
 				},
-				'chartArea' : {
-					'width' : '95%'
-				// max width so that axis text will not be cropped
+				"chartArea" : {
+					"width" : "100%",
+					"height" : "80%",
+					"top" : 45,
+					"left" : 0
 				},
-				'colors' : [ '#0066ff', '#009900', '#ff9900', '#ff3333' ], // blue,green,orange,red
-				'focusTarget' : 'category',
-				'isStacked' : false
+				"colors" : [ "#0066ff", "#009900", "#ff9900", "#ff3333" ], // blue,green,orange,red
+				"focusTarget" : "category",
+				"isStacked" : false
 			}
 		});
 		durationHistogram.draw();
 		
 		categoryDurationHistogram = new google.visualization.ChartWrapper({
-			"containerId" : "chart6",
-			"chartType" : "ColumnChart",
+			"containerId" : "chart3",
+			"chartType" : "BarChart",
 			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
 			"query" : "select K, count(A) "
 				+ "where K != 'Others' "
 				+ "and K != 'Person hit by train' "
+				+ "and K != 'Maintenance/Upgrading' "
 				+ "group by K "
 				+ "pivot AA ",
 			"options" : {
-				"title" : "Length of delay by category",
+				"title" : "Number of Service Disruptions By Length of Delay",
 				"vAxis" : {
-					"title" : "Number of service disruptions",
-					"textPosition" : "in"
+					"title" : "",
+					"textPosition" : "out"
 				},
-				'hAxis' : {
-					'textPosition' : 'out',
-					'textStyle' : {
-						fontSize : 10
+				"hAxis" : {
+					"textPosition" : "out",
+					"textStyle" : {
+						"fontSize" : 12
 					}
 				},
-				'legend' : {
-					'position' : 'bottom',
-					'textStyle' : {
-						'fontSize' : 12
+				"legend" : {
+					"position" : "top",
+					"textStyle" : {
+						"fontSize" : 12
 					}
 				},
-				'chartArea' : {
-					'width' : '95%'
-				// max width so that axis text will not be cropped
+				"chartArea" : {
+					"width" : "65%",
+					"height" : "85%",
+					"top" : 40
 				},
-				'colors' : [ '#0066ff', '#009900', '#ff9900', '#ff3333' ], // blue,green,orange,red
-				'focusTarget' : 'category',
-				'isStacked' : false
+				"colors" : [ "#0066ff", "#009900", "#ff9900", "#ff3333" ], // blue,green,orange,red
+				"focusTarget" : "category",
+				"isStacked" : false
 			}
 		});
 		categoryDurationHistogram.draw();
 		
 		timeOfDayDurationHistogram = new google.visualization.ChartWrapper({
-			"containerId" : "chart7",
+			"containerId" : "chart1",
 			"chartType" : "ColumnChart",
 			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
-			"query" : "select hour(AB), count(A) "
+			"query" : "select AC, count(A) "
 				+ "where K != 'Others' "
 				+ "and K != 'Person hit by train' "
-				+ "group by hour(AB) "
+				+ "and K != 'Maintenance/Upgrading' "
+				+ "group by AC "
 				+ "pivot AA "
-				+ "format hour(AB) '## :hours'",
+				+ "format AC 'haa'",
 			"options" : {
-				"title" : "Length of delay by time of day",
+				"title" : "Number of Service Disruptions By Time of Day",
 				"vAxis" : {
-					"title" : "Number of service disruptions",
+					"title" : "",
 					"textPosition" : "in"
 				},
 				"hAxis" : {
-					"title" : "Time of day -- from 00:00 to 23:59, following the 24-hour clock",
+					"title" : "",
 					"textPosition" : "out"
 				},
-				'legend' : {
-					'position' : 'bottom',
-					'textStyle' : {
-						'fontSize' : 12
+				"legend" : {
+					"position" : "top",
+					"textStyle" : {
+						"fontSize" : 12
 					}
 				},
-				'chartArea' : {
-					'width' : '95%'
-				// max width so that axis text will not be cropped
+				"chartArea" : {
+					"width" : "100%",
+					"height" : "80%",
+					"top" : 45,
+					"left" : 0
 				},
-				'colors' : [ '#0066ff', '#009900', '#ff9900', '#ff3333' ], // blue,green,orange,red
-				'focusTarget' : 'category',
-				'isStacked' : true
+				"colors" : [ "#0066ff", "#009900", "#ff9900", "#ff3333" ], // blue,green,orange,red
+				"focusTarget" : "category",
+				"isStacked" : true
 			}
 		});
 		timeOfDayDurationHistogram.draw();
