@@ -998,7 +998,8 @@ FailRail.Charter = {
 					+ "and K != 'Person hit by train' "
 					+ "and K != 'Maintenance/Upgrading' "
 					+ "group by I "
-					+ "order by count(A) desc",
+					+ "order by count(A) desc "
+					+ "format count(A) '#,###' ",
 			"options" : {
 				"title" : "Share of Service Disruptions By Rail Line",
 				"chartArea" : {
@@ -1017,10 +1018,10 @@ FailRail.Charter = {
 						color : 'red'
 					},
 					2 : {
-						color : 'orange'
+						color : 'darkturquoise'
 					},
 					3 : {
-						color : 'darkturquoise'
+						color : 'orange'
 					},
 					4 : {
 						color : 'purple'
@@ -1041,7 +1042,7 @@ FailRail.Charter = {
 				+ "and K != 'Maintenance/Upgrading' "
 				+ "group by I "
 				+ "order by sum(Q)/60 desc "
-				+ "format sum(Q)/60 '#,###.#'",
+				+ "format sum(Q)/60 '#,###' ",
 			"options" : {
 				"title" : "Share of Delay Hours By Rail Line",
 				"chartArea" : {
@@ -1054,10 +1055,10 @@ FailRail.Charter = {
 				},
 				"slices" : {
 					0 : {
-						color : "red"
+						color : "darkturquoise"
 					},
 					1 : {
-						color : "darkturquoise"
+						color : "red"
 					},
 					2 : {
 						color : "green"
