@@ -29,7 +29,7 @@
 	src="https://www.google.com/jsapi?key=ABQIAAAAJpft3drTVQIwTqju_Z11FRSQllp4bSmHj69r5hfpUF1-76DsHxTQULFTt5zlblHBSmSL5Ne77h2xyw"
 	type="text/javascript"></script>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <script type="text/javascript">
 	var _gaq = _gaq || [];
@@ -66,11 +66,27 @@
 	<!-- END Javascript SDK for Facebook Like Button HTML5 Plugin -->
 
 
-	<div class="container-fluid">
-		<div class="navbar">
-			<div class="navbar-inner">
+	<!-- BEGIN Top nav bar -->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+			
+			
+				<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</a> 
+			
+			
 				<a class="brand" href="index.html">FAILRAIL.sg</a>
-				<div class="nav-collapse">
+			
+				
+				<div class="nav-collapse collapse">
+				
+				
 					<ul class="nav">
 						<li><a href="index.html">Map</a></li>
 						<li class="dropdown active"><a class="dropdown-toggle"
@@ -79,7 +95,7 @@
 							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 								<li class="active"><a href="overview.html">Overview</a></li>
 								<li><a href="major-disruptions.html">Major Disruptions</a></li>
-
+	
 								<li class="nav-header">Rail Line</li>
 								<li><a href="line.html">Line Fault</a></li>
 								<li><a href="length-of-delay.html">Length of Delay</a></li>
@@ -96,9 +112,7 @@
 						<li><a
 							href="https://script.google.com/macros/s/AKfycbyUootM9U5uXo_hcFD3GZXX5RHSOhMN6JvJxfnem2uRg4p78MU/exec"
 							target="_blank">Search</a></li>
-						<li><a
-							href="http://goo.gl/HQrby"
-							target="_blank">Calendar</a></li>
+						<li><a href="http://goo.gl/HQrby" target="_blank">Calendar</a></li>
 						<li><a
 							href="https://docs.google.com/folder/d/0B0dFf0ojY-LPeTl5VnpGRzBTTzA/edit"
 							target="_blank">Archive</a></li>
@@ -106,8 +120,9 @@
 							href="https://docs.google.com/spreadsheet/pub?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&output=html"
 							target="_blank">Data</a></li>
 						<li><a href="about.html">About</a></li>
-
 					</ul>
+					
+					
 					<div id="gplus-button" class="pull-right">
 						<!-- g-plusone button does not display properly if mixed with other css classes -->
 						<div class="g-plusone" data-size="medium"
@@ -124,11 +139,15 @@
 							data-show-faces="false"></div>
 					</div>
 				</div>
-				<!--/.nav-collapse -->
+				<!-- /.nav-collapse -->
+			
+			
 			</div>
 		</div>
-		<!-- END of top navbar -->
+	</div>
+	<!-- END Top nav bar -->
 
+	<div class="container-fluid">
 		<div class="row-fluid overview">
 			<div class="offset2 span8">
 				<h1>
@@ -140,10 +159,10 @@
 						href="https://docs.google.com/spreadsheet/pub?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&output=html"
 						target="_blank">data</a>. Unfortunately, the number of service
 					disruptions is understated because only the authorities possess
-					complete information.
+					complete information. Chart data excludes suicide attempts and
+					events that are beyond the control of the service operators e.g.
+					power trip caused by lightning.
 				</p>
-				<p class="essay">Chart data excludes suicide attempts and events that are beyond the control
-					of the service operators e.g. power trip caused by lightning.</p>
 				<hr />
 				<div id="chart1" class="inline-top"></div>
 				<div id="chart2" class="inline-top"></div>

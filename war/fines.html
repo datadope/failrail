@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="styles/screen.css" type="text/css">
 
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <script type="text/javascript">
 	var _gaq = _gaq || [];
@@ -64,11 +64,27 @@
 	<!-- END Javascript SDK for Facebook Like Button HTML5 Plugin -->
 
 
-	<div class="container-fluid">
-		<div class="navbar">
-			<div class="navbar-inner">
+	<!-- BEGIN Top nav bar -->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+			
+			
+				<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</a> 
+			
+			
 				<a class="brand" href="index.html">FAILRAIL.sg</a>
-				<div class="nav-collapse">
+			
+				
+				<div class="nav-collapse collapse">
+				
+				
 					<ul class="nav">
 						<li><a href="index.html">Map</a></li>
 						<li class="dropdown"><a class="dropdown-toggle"
@@ -77,7 +93,7 @@
 							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 								<li><a href="overview.html">Overview</a></li>
 								<li><a href="major-disruptions.html">Major Disruptions</a></li>
-															
+	
 								<li class="nav-header">Rail Line</li>
 								<li><a href="line.html">Line Fault</a></li>
 								<li><a href="length-of-delay.html">Length of Delay</a></li>
@@ -94,9 +110,7 @@
 						<li><a
 							href="https://script.google.com/macros/s/AKfycbyUootM9U5uXo_hcFD3GZXX5RHSOhMN6JvJxfnem2uRg4p78MU/exec"
 							target="_blank">Search</a></li>
-						<li><a
-							href="http://goo.gl/HQrby"
-							target="_blank">Calendar</a></li>
+						<li><a href="http://goo.gl/HQrby" target="_blank">Calendar</a></li>
 						<li><a
 							href="https://docs.google.com/folder/d/0B0dFf0ojY-LPeTl5VnpGRzBTTzA/edit"
 							target="_blank">Archive</a></li>
@@ -105,6 +119,8 @@
 							target="_blank">Data</a></li>
 						<li><a href="about.html">About</a></li>
 					</ul>
+					
+					
 					<div id="gplus-button" class="pull-right">
 						<!-- g-plusone button does not display properly if mixed with other css classes -->
 						<div class="g-plusone" data-size="medium"
@@ -121,87 +137,94 @@
 							data-show-faces="false"></div>
 					</div>
 				</div>
-				<!--/.nav-collapse -->
+				<!-- /.nav-collapse -->
+			
+			
 			</div>
 		</div>
-		<!-- END of top navbar -->
+	</div>
+	<!-- END Top nav bar -->
 
-		<div id="fines-dashboard">
-			<div class="row-fluid">
-				<div class="offset2 span8">
-					<h1>
-						Fine Lines <small>a fine history of Singapore's metro</small>
-					</h1>
-					<p class="essay">
-						Under the Licensing and Operating Agreement (LOA) between the Land
-						Transport Authority (LTA) and the service operators, SMRT and SBS
-						Transit are required to adhere to the Operating Performance
-						Standards (OPS) for service quality, safety and maintenance. Most
-						notably, the OPS determines the severity of service disruptions as
-						delays affecting more than <strong><a
-							href="http://app.mot.gov.sg/News_Centre/Latest_News/NewsID/52910FFF4CF62839/Written_Reply_by_Transport_Minister_Lui_Tuck_Yew_to_Parliamentary_Question_on_Operating_Performance.aspx"
-							target="_blank">20,000 persons</a></strong> per incident.
-					</p>
-					<p class="essay">
-						Clause 10(2) of the LOA states that if the service operator fails
-						to meet the OPS, it is liable to pay a penalty as imposed by LTA,
-						up to a maximum of S$1 million. In calculating the penalty to be
-						paid, LTA shall consider mitigating factors such as constraints of
-						the relevant working network and infrastructure as well as
-						passenger intervention, which are beyond the service operator's
-						control (<a
-							href="http://app.mot.gov.sg/News_Centre/Highlights/VID/452910002CF93700/COI_Report_on_Disruption_of_Train_Services.aspx"
-							target="_blank">Committee of Inquiry report</a>, <em>p. 26, para. 78</em>).
-					</p>
-					<p>The service operators were fined for failing to meet the
-						OPS:</p>
-					<ol class="essay list-spacing">
-						<li>SMRT was fined a total of <a
-							href="http://sg.news.yahoo.com/smrt-slapped-with-maximum-fine-of-s-2-million-for-december-breakdowns.html"
-							target="_blank">$2 million</a> for two major disruptions on the
-							North-South Line in December 2011, which affected 221,000
-							commuters. This marks the first time that the maximum penalty of
-							$1 million per incident was meted out to a service operator under
-							the Rapid Transit Systems Act.
-						</li>
-						<li>SBS Transit was fined <a
-							href="http://sg.news.yahoo.com/sbs-transit-to-face--400-000-fine-for-nel-disruption.html"
-							target="_blank">$400,000</a> for a major disruption on the
-							North-East Line in March 2012, which lasted 11 hours and affected
-							117,000 commuters. This is SBS Transit's first and only fine since it
-							started rail operations in 2003.
-						</li>
-						<li>SMRT was fined <a
-							href="http://newspapers.nl.sg/Digitised/Article/today20080404-1.2.9.4.aspx"
-							target="_blank">$387,176</a> for a major disruption on the
-							East-West Line in January 2008, which lasted 7 hours and affected
-							57,000 commuters.
-						</li>
-						<li>In 2002, SMRT was fined <a
-							href="http://newspapers.nl.sg/Digitised/Article/today20021122-1.2.11.5.aspx"
-							target="_blank">$10,000</a> when the Bukit Panjang LRT failed to
-							meet the 99.7 percent service availability standard.
-						</li>
-						<li>In 2001, SMRT was fined <a
-							href="http://newspapers.nl.sg/Digitised/Article/today20020509-2.2.4.9.aspx"
-							target="_blank">$10,000</a> when the Bukit Panjang LRT service
-							broke down six times in nine months.
-						</li>
-						<li>SMRT was fined <a
-							href="http://newspapers.nl.sg/Digitised/Article/today20001120-1.2.5.6.aspx"
-							target="_blank">$10,000</a> for a train collision on the Bukit
-							Panjang LRT in November 2000. 3 people were hurt and the power
-							rail at Phoenix station was damaged. This was the first fine ever
-							to be meted out to a service operator.
-						</li>
-						<li><em>LTA is currently investigating the train <a
-								href="http://sg.news.yahoo.com/power-fault-on-nel-line-causes-early-morning-peak-hour-delay-20120817.html"
-								target="_blank">breakdown on the North-East Line</a> in August
-								2012.
-						</em></li>
-					</ol>
+	<div class="container-fluid">
+		
+		<div class="row-fluid">
+			<div class="offset2 span8">
+				<h1>
+					Fine Lines <small>a fine history of Singapore's metro</small>
+				</h1>
+				<p class="essay">
+					Under the Licensing and Operating Agreement (LOA) between the Land
+					Transport Authority (LTA) and the service operators, SMRT and SBS
+					Transit are required to adhere to the Operating Performance
+					Standards (OPS) for service quality, safety and maintenance. Most
+					notably, the OPS determines the severity of service disruptions as
+					delays affecting more than <strong><a
+						href="http://app.mot.gov.sg/News_Centre/Latest_News/NewsID/52910FFF4CF62839/Written_Reply_by_Transport_Minister_Lui_Tuck_Yew_to_Parliamentary_Question_on_Operating_Performance.aspx"
+						target="_blank">20,000 persons</a></strong> per incident.
+				</p>
+				<p class="essay">
+					Clause 10(2) of the LOA states that if the service operator fails
+					to meet the OPS, it is liable to pay a penalty as imposed by LTA,
+					up to a maximum of S$1 million. In calculating the penalty to be
+					paid, LTA shall consider mitigating factors such as constraints of
+					the relevant working network and infrastructure as well as
+					passenger intervention, which are beyond the service operator's
+					control (<a
+						href="http://app.mot.gov.sg/News_Centre/Highlights/VID/452910002CF93700/COI_Report_on_Disruption_of_Train_Services.aspx"
+						target="_blank">Committee of Inquiry report</a>, <em>p. 26, para. 78</em>).
+				</p>
+				<p>The service operators were fined for failing to meet the
+					OPS:</p>
+				<ol class="essay list-spacing">
+					<li>SMRT was fined a total of <a
+						href="http://sg.news.yahoo.com/smrt-slapped-with-maximum-fine-of-s-2-million-for-december-breakdowns.html"
+						target="_blank">$2 million</a> for two major disruptions on the
+						North-South Line in December 2011, which affected 221,000
+						commuters. This marks the first time that the maximum penalty of
+						$1 million per incident was meted out to a service operator under
+						the Rapid Transit Systems Act.
+					</li>
+					<li>SBS Transit was fined <a
+						href="http://sg.news.yahoo.com/sbs-transit-to-face--400-000-fine-for-nel-disruption.html"
+						target="_blank">$400,000</a> for a major disruption on the
+						North-East Line in March 2012, which lasted 11 hours and affected
+						117,000 commuters. This is SBS Transit's first and only fine since it
+						started rail operations in 2003.
+					</li>
+					<li>SMRT was fined <a
+						href="http://newspapers.nl.sg/Digitised/Article/today20080404-1.2.9.4.aspx"
+						target="_blank">$387,176</a> for a major disruption on the
+						East-West Line in January 2008, which lasted 7 hours and affected
+						57,000 commuters.
+					</li>
+					<li>In 2002, SMRT was fined <a
+						href="http://newspapers.nl.sg/Digitised/Article/today20021122-1.2.11.5.aspx"
+						target="_blank">$10,000</a> when the Bukit Panjang LRT failed to
+						meet the 99.7 percent service availability standard.
+					</li>
+					<li>In 2001, SMRT was fined <a
+						href="http://newspapers.nl.sg/Digitised/Article/today20020509-2.2.4.9.aspx"
+						target="_blank">$10,000</a> when the Bukit Panjang LRT service
+						broke down six times in nine months.
+					</li>
+					<li>SMRT was fined <a
+						href="http://newspapers.nl.sg/Digitised/Article/today20001120-1.2.5.6.aspx"
+						target="_blank">$10,000</a> for a train collision on the Bukit
+						Panjang LRT in November 2000. 3 people were hurt and the power
+						rail at Phoenix station was damaged. This was the first fine ever
+						to be meted out to a service operator.
+					</li>
+					<li><em>LTA is <a
+							href="http://app.lta.gov.sg/apps/news/page.aspx?c=2&id=b08f6d7d-8350-4743-84ed-23405b798d46"
+							target="_blank">investigating</a>
+							the train breakdown on the North-East Line in <a
+							href="http://sg.news.yahoo.com/power-fault-on-nel-line-causes-early-morning-peak-hour-delay-20120817.html"
+							target="_blank">August 2012</a> and has not announced any regulatory action as of May 2013.
+					</em></li>
+				</ol>
 
-					<hr />
+				<hr />
+				<div id="fines-dashboard">
 					<div id="fines-control1"></div>
 
 					<div id="fines-chart1"></div>

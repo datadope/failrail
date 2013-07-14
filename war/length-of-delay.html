@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="styles/screen.css" type="text/css">
 
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <script type="text/javascript">
 	var _gaq = _gaq || [];
@@ -64,11 +64,27 @@
 	<!-- END Javascript SDK for Facebook Like Button HTML5 Plugin -->
 
 
-	<div class="container-fluid">
-		<div class="navbar">
-			<div class="navbar-inner">
+	<!-- BEGIN Top nav bar -->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+			
+			
+				<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</a> 
+			
+			
 				<a class="brand" href="index.html">FAILRAIL.sg</a>
-				<div class="nav-collapse">
+			
+				
+				<div class="nav-collapse collapse">
+				
+				
 					<ul class="nav">
 						<li><a href="index.html">Map</a></li>
 						<li class="dropdown active"><a class="dropdown-toggle"
@@ -77,11 +93,10 @@
 							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 								<li><a href="overview.html">Overview</a></li>
 								<li><a href="major-disruptions.html">Major Disruptions</a></li>
-
+	
 								<li class="nav-header">Rail Line</li>
 								<li><a href="line.html">Line Fault</a></li>
-								<li class="active"><a href="length-of-delay.html">Length
-										of Delay</a></li>
+								<li class="active"><a href="length-of-delay.html">Length of Delay</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">Reports <b class="caret"></b>
@@ -104,6 +119,8 @@
 							target="_blank">Data</a></li>
 						<li><a href="about.html">About</a></li>
 					</ul>
+					
+					
 					<div id="gplus-button" class="pull-right">
 						<!-- g-plusone button does not display properly if mixed with other css classes -->
 						<div class="g-plusone" data-size="medium"
@@ -120,27 +137,32 @@
 							data-show-faces="false"></div>
 					</div>
 				</div>
-				<!--/.nav-collapse -->
+				<!-- /.nav-collapse -->
+			
+			
 			</div>
 		</div>
-		<!-- END of top navbar -->
+	</div>
+	<!-- END Top nav bar -->
 
-		<div id="db-line-dfreq">
-			<div class="row-fluid">
-				<div class="span2">
-					<div id="control1" class="affix"></div>
-				</div>
-				<div class="span8">
-					<h1>
-						Rail Line <small>length of delay</small>
-					</h1>
-					
-					<p>This dashboard shows the time series of service disruptions
-						by rail line and length of delay.</p>
+	<div class="container-fluid">
+		
+		<div class="row-fluid">
+			<div class="span2">
+				<div id="control1" class="affix"></div>
+			</div>
+			<div class="span8">
+				<h1>
+					Rail Line <small>length of delay</small>
+				</h1>
+				
+				<p>This dashboard shows the time series of service disruptions
+					by rail line and length of delay.</p>
 
-					
+				
 
-					<hr />
+				<hr />
+				<div id="db-line-dfreq">
 					<div id="chart1"></div>
 					<p class="essay">
 						<em>Chart data excludes passenger-related incidents, such as
@@ -187,7 +209,7 @@
 							less than 10 minutes.
 						</li>
 					</ul>
-					<p class="inline-top">Curious about major disruptions?</p>
+					
 					<a id="link-major-disruptions" class="btn btn-primary inline-top"
 						href="major-disruptions.html">Major Disruptions Dashboard <i
 						class="icon-chevron-right icon-white"></i>
