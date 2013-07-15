@@ -265,9 +265,8 @@ FailRail.Charter = {
 				+ "and K != 'Others' and K != 'Person hit by train' "
 				+ "group by G, I "
 				+ "pivot K " + "order by G " + "label I 'Rail Line"
-				+ "', G 'Date" + "', count(A) '" + // label as empty string
-				"', sum(Q)/60 '" + // label as empty string
-				"' format G 'MMM yyyy', sum(Q)/60 '#,###.# hours'");
+				+ "', G 'Date" + "', count(A) '', sum(Q)/60 '' "
+				+ "format sum(Q)/60 '#.# hours' ");
 		query.send(FailRail.Charter.lineFaultTimeSeriesDashboard);
 	},
 
@@ -303,63 +302,89 @@ FailRail.Charter = {
 		// Number of service disruptions by category (month-on-month)
 		var countDisruptionChart = new google.visualization.ChartWrapper(
 				{
-					'chartType' : 'ColumnChart',
-					'containerId' : 'chart1',
-					'options' : {
-						'title' : 'Number of service disruptions by category (month-on-month)',
-						'legend' : {
-							'position' : 'bottom',
-							'textStyle' : {
-								'fontSize' : 10
+					"chartType" : "ColumnChart",
+					"containerId" : "chart1",
+					"options" : {
+						"title" : "Number of Service Disruptions by Category (month-on-month)",
+						"legend" : {
+							"position" : "top",
+							"textStyle" : {
+								"fontSize" : 12
 							}
 						},
-						'chartArea' : {
-							'width' : '90%'
-						// max width so that axis text will not be cropped
+						"vAxis" : {
+							"format" : "#",
+							"textPosition" : "in",
+							"textStyle" : {
+								"fontSize" : 14
+							}
 						},
-						'focusTarget' : 'category',
-						'bar' : {
-							'groupWidth' : '45%'
+						"hAxis" : {
+							"format" : "MMM yyyy",
+							"textPosition" : "out",
+							"textStyle" : {
+								"fontSize" : 14
+							}
 						},
-						'isStacked' : true
+						"chartArea" : {
+							"width" : "100%",
+							"height" : "80%",
+							"left" : 0,
+							"top" : 45
+						},
+						"focusTarget" : "category",
+						"bar" : {
+							"groupWidth" : "45%"
+						},
+						"isStacked" : true
 					}
 				});
 		countDisruptionChart.setView({
-			'columns' : [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+			"columns" : [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
 		});
 
 		// Total delay hours by category (month-on-month)
 		var sumDelayChart = new google.visualization.ChartWrapper({
-			'chartType' : 'ColumnChart',
-			'containerId' : 'chart2',
-			'options' : {
-				'title' : 'Delay hours by category (month-on-month)',
-				'legend' : {
-					'position' : 'bottom',
-					'textStyle' : {
-						'fontSize' : 10
+			"chartType" : "ColumnChart",
+			"containerId" : "chart2",
+			"options" : {
+				"title" : "Delay Hours by Category (month-on-month)",
+				"legend" : {
+					"position" : "top",
+					"textStyle" : {
+						"fontSize" : 12
 					}
 				},
-				'chartArea' : {
-					'width' : '90%'
-				// max width so that axis text will not be cropped
+				"vAxis" : {
+					"format" : "#.# hrs",
+					"textPosition" : "in",
+					"textStyle" : {
+						"fontSize" : 14
+					}
 				},
-				'focusTarget' : 'category',
-				'bar' : {
-					'groupWidth' : '45%'
+				"hAxis" : {
+					"format" : "MMM yyyy",
+					"textPosition" : "out",
+					"textStyle" : {
+						"fontSize" : 14
+					}
 				},
-				'isStacked' : true
+				"chartArea" : {
+					"width" : "100%",
+					"height" : "80%",
+					"left" : 0,
+					"top" : 45
+				},
+				"focusTarget" : "category",
+				"bar" : {
+					"groupWidth" : "45%"
+				},
+				"isStacked" : true
 			}
 		});
 		sumDelayChart.setView({
-			'columns' : [ 0, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
+			"columns" : [ 0, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 ]
 		});
-
-		/*
-		 * // Show query results in a table for debugging var tableChart = new
-		 * google.visualization.ChartWrapper({ 'chartType' : 'Table',
-		 * 'containerId' : 'db2-chart3' });
-		 */
 
 		dashboard.bind([ lineControl ], [ countDisruptionChart,
 				sumDelayChart ]);

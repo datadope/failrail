@@ -353,7 +353,6 @@ div#map {
 /* Dashboard: Rail Line Fault (Time Series)
 ********************************************************/
 #db-line-faultts #chart1,#db-line-faultts #chart2 {
-	width: 70em;
 	height: 25em;
 	margin: 0 0 2em 0;
 }
