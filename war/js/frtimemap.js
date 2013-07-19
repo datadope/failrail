@@ -216,7 +216,7 @@ $(function() {
 				} ],
 
 				bandInfo : [ {
-					width : "85%",
+					width : "80%",
 					intervalUnit : Timeline.DateTime.WEEK,
 					intervalPixels : 140, // must match the zoom index
 					theme : upperTheme,
@@ -248,7 +248,7 @@ $(function() {
 					})
 
 				}, {
-					width : "15%",
+					width : "20%",
 					intervalUnit : Timeline.DateTime.MONTH,
 					intervalPixels : 100,
 					showEventText : false,

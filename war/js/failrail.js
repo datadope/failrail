@@ -165,7 +165,8 @@ FailRail.Charter = {
 		//
 		query.setQuery("select G, I, count(A) "
 				+ "where G >= date '2011-12-01' " 
-				+ "and K != 'Others' and K != 'Person hit by train' " 
+				+ "and K != 'Others' and K != 'Person hit by train' "
+				+ "and K != 'Maintenance/Upgrading' "
 				+ "group by G, I " + "pivot AA "
 				+ // duration bin
 				"order by G " + // in chronological order
@@ -208,39 +209,44 @@ FailRail.Charter = {
 
 		// Number of service disruptions by category (month-on-month)
 		var histoChart = new google.visualization.ChartWrapper({
-			'chartType' : 'ColumnChart',
-			'containerId' : 'chart1',
-			'options' : {
-				'title' : 'Frequency and length of delay (month-on-month)',
-				'legend' : {
-					'position' : 'bottom',
-					'alignment' : 'center',
-					'textStyle' : {
-						'fontSize' : 12
+			"chartType" : "ColumnChart",
+			"containerId" : "chart1",
+			"options" : {
+				"title" : "Number of Service Disruptions by Length of Delay (month-on-month)",
+				"legend" : {
+					"position" : "top",
+					"alignment" : "left",
+					"textStyle" : {
+						"fontSize" : 14
 					}
 				},
-				'chartArea' : {
-					'width' : '90%'
-				// max width so that axis text will not be cropped
+				"chartArea" : {
+					"width" : "100%",
+					"height" : "80%",
+					"top" : 40,
+					"left" : 0
 				},
-				'vAxis' : {
-					'title' : 'Number of Service Disruptions',
-					// Put maxValue as 4 because there are 4 gridlines
-					'maxValue' : 4
+				"vAxis" : {
+					"title" : "",
+					"textPosition" : "in",
+					"textStyle" : {
+						"fontSize" : 14
+					}
 				},
-				'hAxis' : {
-					'viewWindowMode' : 'maximized'
+				"hAxis" : {
+					"title" : "",
+					"textPosition" : "out",
+					"textStyle" : {
+						"fontSize" : 14
+					}
 				},
-				'focusTarget' : 'category',
-				'bar' : {
-					'groupWidth' : '45%'
-				},
-				'colors' : [ '#0066ff', '#009900', '#ff9900', '#ff3333' ], // blue,green,orange,red
-				'isStacked' : false
+				"focusTarget" : "category",
+				"colors" : [ "#0066ff", "#009900", "#ff9900", "#ff3333" ], // blue,green,orange,red
+				"isStacked" : true
 			}
 		});
 		histoChart.setView({
-			'columns' : [ 0, 2, 3, 4, 5 ]
+			"columns" : [ 0, 2, 3, 4, 5 ]
 		});
 
 		// Show query results in a table

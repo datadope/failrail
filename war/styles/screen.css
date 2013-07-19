@@ -221,7 +221,7 @@ div#timemap img {
 
 div#timelinecontainer {
 	width: 100%;
-	height: 35%;
+	height: 27%;
 }
 
 div#timeline {
@@ -233,7 +233,7 @@ div#timeline {
 
 div#mapcontainer {
 	width: 100%;
-	height: 65%;
+	height: 73%;
 }
 
 div#map {
@@ -370,17 +370,12 @@ div#map {
 /* Dashboard: Rail Line Length of Delay (Time Series)
 ********************************************************/
 #db-line-dfreq #chart1 {
-	width: 70em;
 	height: 25em;
-	margin: 0 0 2em 0;
+	margin: 0 0 1em 0;
 }
 
 #db-line-dfreq #control1 {
 	margin: 1em 0 0 1em;
-}
-
-#db-line-dfreq #control2 {
-	margin: 1em 0 0 0;
 }
 
 #link-major-disruptions {
