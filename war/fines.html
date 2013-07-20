@@ -148,7 +148,7 @@
 	<div class="container-fluid">
 		
 		<div class="row-fluid">
-			<div class="offset2 span8">
+			<div class="offset1 span10">
 				<h1>
 					Fine Lines <small>a fine history of Singapore's metro</small>
 				</h1>
@@ -219,7 +219,7 @@
 							target="_blank">investigating</a>
 							the train breakdown on the North-East Line in <a
 							href="http://sg.news.yahoo.com/power-fault-on-nel-line-causes-early-morning-peak-hour-delay-20120817.html"
-							target="_blank">August 2012</a> and has not announced any regulatory action as of May 2013.
+							target="_blank">August 2012</a> and has not announced any regulatory action as of July 2013.
 					</em></li>
 				</ol>
 
@@ -249,22 +249,22 @@
 							Line) and the service disruption between Marymount and Dhoby
 							Ghaut in September 2011 (Circle Line).</li>
 						<li>The public will be very surprised if LTA does not levy a
-							fine for the service disruption on the North-East Line in August
-							2012 (green bubble on the top right). It was an exceptionally
-							long delay, although SBS Transit did not disclose the number of
-							commuters affected. Investigations are ongoing.</li>
+							fine for the service disruption on the <a
+							href="http://sg.news.yahoo.com/power-fault-on-nel-line-causes-early-morning-peak-hour-delay-20120817.html"
+							target="_blank">North-East Line in August 2012</a> (green bubble
+							on the top right). Although it was an exceptionally long delay, 
+							SBS Transit did not disclose the number of commuters affected.
+							Investigations are ongoing.
+						</li>
 					</ul>
-					
-					<a id="tip-sort-columns" href="#tip-sort-columns" class="btn">Chart
-						Data <i class="icon-resize-vertical"></i>
-					</a>
+
+
 					<div id="fines-chart2"></div>
-					<hr class="footer-line" />
+					
 				</div>
 			</div>
+			<hr class="footer-line" />
 		</div>
-		<!-- END of dashboard container -->
-
 	</div>
 	<!-- END of layout container -->
 
@@ -285,19 +285,23 @@
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript">
-		// Tooltip options
-		(function uiHints() {
-			var options = {
-				title : "Amount of fine imposed by the government regulator",
-				placement : "right",
+		$(document).ready(function(){
+			
+			$("#fines-chart2").tooltip({
+				title : "Click on the column heading to sort the data",
+				placement : "top",
 				html : "false",
 				trigger : "hover"
-			};
-			$("#fines-control1").tooltip(options);
-
-			options.title = "Click on the table columns to sort the data";
-			$("#tip-sort-columns").tooltip(options);
-		})();
+			});
+			
+			$("#fines-control1").tooltip({
+				title : "Amount of fine imposed by the government regulator",
+				placement : "top",
+				html : "false",
+				trigger : "hover"
+			});
+		});
+	
 	</script>
 
 	<!-- js for tweet button -->

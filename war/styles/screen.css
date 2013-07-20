@@ -410,13 +410,14 @@ div#map {
 	margin: 1em 0 1em 0;
 }
 
-#fines-chart1,#fines-chart2 {
-	width: 70em;
-	margin: 1em 0 0 0;
+#fines-chart1 {
+	height: 40em;
+	margin: 1em 0 1em 0;
 }
 
-#fines-chart1 {
-	height: 50em; /* min height for edge bubbles not to be cropped */
+#fines-chart2 {
+	height: 30em;
+	margin: 1em 0 0 0;
 }
 
 /* Report: Train Faults Halved

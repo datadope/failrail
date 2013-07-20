@@ -410,8 +410,7 @@ FailRail.Charter = {
 				// The service operator was penalised with a fine
 				"and K != 'Person hit by train' " + // Not the fault of service
 				// operators
-				"and R != date '2002-10-21' " + // Outlier event: BPLRT outage
-				// for 6 days
+				"and R > date '2005-12-31' " + //Filter out disruptions before 2006
 				"order by G desc " + "label Q/60 'Delay Hours' "
 				+ ", M 'Commuters Affected' " + ", N 'Buses Deployed' "
 				+ ", O 'Staff Deployed' " + ", P 'Fine Amount ($)' "
@@ -454,43 +453,45 @@ FailRail.Charter = {
 		// affected)
 		var bubbleChart1 = new google.visualization.ChartWrapper(
 				{
-					'chartType' : 'BubbleChart',
-					'containerId' : 'fines-chart1',
-					'options' : {
-						'title' : 'Date of Disruption and Delay Hours vs. Fine Amount (bubble colour), Commuters Affected (bubble size)',
-						'titlePosition' : 'out',
-						'axisTitlesPosition' : 'out',
-						'legend' : {
-							'position' : 'none'
+					"chartType" : "BubbleChart",
+					"containerId" : "fines-chart1",
+					"options" : {
+						"title" : "Major Service Disruptions by Length of Delay, Fine Amount (bubble colour) and Number of Commuters Affected (bubble size)",
+						"legend" : {
+							"position" : "top"
 						},
-						'chartArea' : {
-							'width' : '93%',
-							'height' : '85%'
+						"chartArea" : {
+							"width" : "100%",
+							"height" : "85%",
+							"top" : 50,
+							"left" : 30
 						},
-						'hAxis' : {
-							'title' : 'Year',
-							'textPosition' : 'in',
-							'format' : 'yyyy'
+						"hAxis" : {
+							"title" : "",
+							"textPosition" : "out",
+							"format" : "yyyy"
 						},
-						'vAxis' : {
-							'title' : 'Length of Delay (Hours)',
-							'textPosition' : 'in',
+						"vAxis" : {
+							"title" : "Length of Delay (Hours)",
+							"textPosition" : "in",
 						},
-						'sizeAxis' : {
-							'minSize' : 10,
-							'maxSize' : 80
+						"sizeAxis" : {
+							"minSize" : 10,
+							"maxSize" : 80
 						},
-						'colorAxis' : {
-							'colors' : [ '#009900', 'yellow', '#ff3333' ], // traffic
+						"colorAxis" : {
+							"colors" : [ "#009900", "yellow", "#ff3333" ], // traffic
 							// light
 							// colors
-							'legend' : {
-								'position' : 'top'
+							"legend" : {
+								"position" : "top",
+								"numberFormat" : "$#,###,###"
 							}
+							
 						},
-						'bubble' : {
-							'textStyle' : {
-								'fontSize' : 11
+						"bubble" : {
+							"textStyle" : {
+								"fontSize" : 11
 							}
 						}
 					}
