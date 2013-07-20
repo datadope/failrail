@@ -298,27 +298,19 @@ div#map {
 	margin: 0 0 0 0;
 }
 
-/* Emergency button activation charts
+/* Emergency Button Activation Page
 ********************************************************/
 #ecb-chart1,#ecb-chart2,#ecb-chart3,#ecb-chart4 {
-	width: 70em;
-	height: 20em;
-	margin: 3em 0 1em 0;
-}
-
-#ecb-chart1 {
-	margin-top: 1em;
-}
-
-#ecb-chart2,#ecb-chart3 {
-	height: 30em;
+	height: 25em;
+	margin: 2em 0 2em 0;
 }
 
 #ecb-chart4 {
-	width: 60em;
-	height: 65em;
+	height: 50em;
 }
 
+/* Dashboard 1 Charts
+********************************************************/
 #db1-control1,#db1-control2,#db1-control3 {
 	margin: 1em 0 0 2em;
 }

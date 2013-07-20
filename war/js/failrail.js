@@ -922,14 +922,12 @@ FailRail.Charter = {
 							"legend" : {
 								"position" : "none"
 							},
-							"title" : "Emergency button activations, by category (since 01 Oct 2012)",
+							"title" : "Emergency Button Activations By Category (1 October - 5 November 2012)",
 							"chartArea" : {
-								"width" : "55%", // max width so that bar
-								// labels will not be
-								// cropped
-								"height" : "80%" // max height so that chart
-							// title and hAxis gridlines
-							// will not be cropped
+								"width" : "80%",
+								"height" : "85%",
+								"left" : 250,
+								"top" : 25
 							}
 						}
 					});
@@ -944,23 +942,29 @@ FailRail.Charter = {
 						"dataSourceUrl" : "https://docs.google.com/spreadsheet/pub?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&headers=1&gid=11",
 						"query" : "select hour(C), count(A) where B > date '2012-09-30' group by hour(C) pivot F format hour(C) '##.00 Hours'",
 						"options" : {
-							'title' : 'Emergency button activations, by category and time of day (since 01 Oct 2012)',
-							'legend' : {
-								'position' : 'right',
-								'textStyle' : {
-									'fontSize' : 12
+							"title" : "Emergency Button Activations By Time of Day (1 October - 5 November 2012)",
+							"legend" : {
+								"position" : "top",
+								"textStyle" : {
+									"fontSize" : 12
 								}
 							},
-							'chartArea' : {
-								'width' : '75%',
-								'height' : '90%',
-								'left' : '5%'
+							"chartArea" : {
+								"width" : "100%",
+								"height" : "80%",
+								"left" : 0,
+								"top" : 40
 							},
 							"hAxis" : {
-								"title" : "Time of Day -- 00:00 to 23:00 Hours"
+								"title" : "",
+								"textPosition" : "out"
 							},
-							'focusTarget' : 'category',
-							'isStacked' : true
+							"vAxis" : {
+								"title" : "",
+								"textPosition" : "in"
+							},
+							"focusTarget" : "category",
+							"isStacked" : true
 						}
 					});
 			wrapper.draw();
@@ -978,12 +982,22 @@ FailRail.Charter = {
 								"position" : "none"
 							},
 							"hAxis" : {
-								"title" : "Where will the Emergency Monkey strike next?"
+								"title" : "",
+								"textStyle" : {
+									"fontSize" : 12
+								}
 							},
-							"title" : "Emergency button activations, by train station* (since 12 Sep 2012)",
+							"title" : "Emergency Button Activations By Train Station (12 September - 5 November 2012)",
 							"chartArea" : {
-								"width" : "70%",
-								"height" : "85%"
+								"width" : "80%",
+								"height" : "90%",
+								"left" : 200,
+								"top" : 30
+							},
+							"vAxis" : {
+								"textStyle" : {
+									"fontSize" : 12
+								}
 							}
 						}
 					});
