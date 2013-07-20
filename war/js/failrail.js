@@ -195,13 +195,13 @@ FailRail.Charter = {
 			'options' : {
 				'filterColumnLabel' : 'Rail Line',
 				'ui' : {
-					'labelStacking' : 'vertical',
+					'labelStacking' : 'horizontal',
 					'allowTyping' : false,
 					'allowMultiple' : false
 				}
 			},
 			'state' : {
-				'selectedValues' : [ 'East-West Line' ]
+				'selectedValues' : [ 'North-South Line' ]
 			}
 		});
 
@@ -295,13 +295,13 @@ FailRail.Charter = {
 			'options' : {
 				'filterColumnLabel' : 'Rail Line',
 				'ui' : {
-					'labelStacking' : 'vertical',
+					'labelStacking' : 'horizontal',
 					'allowTyping' : false,
 					'allowMultiple' : false
 				}
 			},
 			'state' : {
-				'selectedValues' : [ 'East-West Line' ]
+				'selectedValues' : [ 'North-South Line' ]
 			}
 		});
 

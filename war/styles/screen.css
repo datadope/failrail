@@ -350,13 +350,7 @@ div#map {
 }
 
 #db-line-faultts #control1 {
-	margin: 1em 0 0 1em;
-}
-
-#db-line-faultts #control2 {
-	margin: 1em 0 0 0;
-	width: 50em;
-	height: 5em;
+	margin: 2em 0 2em 0;
 }
 
 /* Dashboard: Rail Line Length of Delay (Time Series)
@@ -367,7 +361,7 @@ div#map {
 }
 
 #db-line-dfreq #control1 {
-	margin: 1em 0 0 1em;
+	margin: 2em 0 2em 0;
 }
 
 #link-major-disruptions {
@@ -412,14 +406,11 @@ div#map {
 	margin: 1em 0 0 0;
 }
 
-/* Report: Train Faults Halved
+/* Train Faults Halved (Report)
 ********************************************************/
-#rpt1-chart1,#rpt1-chart2 {
-	width: 70em;
-	height: 25em;
-}
 
-/* Dashboard: Overview
+
+/* Overview (Dashboard)
 ********************************************************/
 .overview #chart4,.overview #chart5 {
 	height: 15em;
