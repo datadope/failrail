@@ -409,6 +409,27 @@ div#map {
 /* Train Faults Halved (Report)
 ********************************************************/
 
+#incidents-count.chart {
+	height: 25em;
+	margin: 1em 0 3em 0;
+}
+
+#incidents {
+	margin: 0 0 3em 0;
+}
+
+#incidents-control1,#incidents-control2,#incidents-control3 {
+	margin: 0 1em 0 0;
+}
+
+#incidents-chart1 {
+	/*height set in chart options to enable scrollbar*/
+	margin: 1em 0 0 0;	
+}
+
+table#duration {
+	margin: 1em 0 3em 0;
+}
 
 /* Overview (Dashboard)
 ********************************************************/

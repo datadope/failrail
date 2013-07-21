@@ -149,16 +149,111 @@
 		<div class="row-fluid">
 			<div class="offset1 span10">
 				<h1>
-					Train Service Reliability<small> Show us the numbers</small>
+					Train Service Reliability<small> Transparency, please</small>
 				</h1>
 				<hr />
+
+				<p class="essay">
+					In Minister Lui's <a
+						href="http://app.mot.gov.sg/News_Centre/Latest_News/NewsID/649970003C10A235/Written_Reply_by_Transport_Minister_Lui_Tuck_Yew_to_Parliamentary_Question_on_the_Number_of_MRT_Bre.aspx"
+						target="_blank">parliamentary reply</a> on 9 July 2013, he stated
+					that there were a total of 32 major incidents, that exceeded 30 minutes of service disruption in the period between January
+					2010 and June 2013. Of these, 17 were on the North-South-East-West
+					Line (NSEWL); nine on the Circle Line (CCL) and six on the North
+					East Line (NEL). The majority of these incidents seems to have
+					occurred in the years 2010 - 2011 because LTA Chief Executive Mr
+					Chew Hock Yong said that there were <a
+						href="http://www.theonlinecitizen.com/2013/05/smrts-released-figures-do-not-tally-with-actual-data/"
+						target="_blank">only three incidents in 2012</a> that exceeded 30
+					minutes of service disruption, in a separate media update in May 2013.
+				</p>
+
+				<p class="essay">
+					However, our <a
+							href="https://docs.google.com/spreadsheet/ccc?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&usp=sharing"
+							target="_blank">data</a> shows otherwise. Between January 2010 and June 2013, there were 93 incidents
+					exceeding 30 minutes of service disruption on the NSEWL, CCL and NEL combined. Adding the numbers for 
+					Bukit Panjang LRT and Punggol LRT, there were a total of 101 incidents. Even if a stricter criteria is set,
+					there were a total of 63 incidents that disrupted service for at least one hour. The figure reported in Parliament
+					seems to be understated. Will the authorities put up the list of 32 major incidents for public scrutiny?
+				</p>
 				
-				<div id="db-line-faultts">
-					<div id="control1"></div>
-					<div id="chart1"></div>
-					<div id="chart2"></div>
+				<table id="duration" class="table table-condensed">
+					<tr>
+						<th></th>
+						<th>Total</th>
+						<th>Bukit Panjang LRT</th>
+						<th>Circle Line</th>
+						<th>East West Line</th>
+						<th>North East Line</th>
+						<th>North South Line</th>
+						<th>Punggol LRT</th>
+					</tr>
+					<tr>
+						<th>Number of Service Disruptions Exceeding 30 Minutes</th>
+						<td>101</td>
+						<td>7</td>
+						<td>14</td>
+						<td>41</td>
+						<td>9</td>
+						<td>29</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<th>Number of Service Disruptions Exceeding 60 Minutes</th>
+						<td>63</td>
+						<td>5</td>
+						<td>9</td>
+						<td>21</td>
+						<td>7</td>
+						<td>20</td>
+						<td>1</td>
+					</tr>
+				</table>
+
+				<p class="essay">
+					As the same parliamentary reply did not provide a breakdown of service disruptions by the cause of delay,
+					we will attempt to do so using our own dataset: 
+				</p>
+
+				<div id="incidents-count" class="chart"></div>
+
+				<p class="essay">
+					The following table shows the details of service disruptions that exceeded 30 minutes in duration:
+				</p>
+
+				<div id="incidents" class="dashboard">
+					<div id="incidents-control1" class="inline-top"></div>
+					<div id="incidents-control2" class="inline-top"></div>
+					<div id="incidents-control3" class="inline-top"></div>
+					<div id="incidents-chart1"></div>		
 				</div>
-				
+
+				<p class="essay">
+					In their regular press releases, the LTA-SMRT and LTA-SBS Transit
+					Joint Teams like to 'normalize' the data by reporting the <a
+						href="http://app.lta.gov.sg/apps/news/page.aspx?c=2&id=562f1239-125e-4bdb-8067-b740fcb385e7"
+						target="_blank">steadily declining</a> ratio of train service
+					disruptions to the total number of train-kilometres operated. While
+					such metrics may be relevant (and look good!) to management,
+					commuters are impacted by the number of service disruptions, <em>not</em>
+					the number of train-kilometres operated. Besides, this metric
+					cannot decisively conclude that the situation is improving when the
+					<a
+						href="http://www.smrt.com.sg/AboutSMRT/InvestorRelations/KeyOperatingMatrix/Trains.aspx"
+						target="_blank">number of train-kilometres operated</a> <a
+						href="http://app.mot.gov.sg/News_Centre/Latest_News/NewsID/3081BFFF3CF62838/Written_Reply_by_Transport_Minister_Lui_Tuck_Yew_to_Parliamentary_Question_on_Maintenance_Regime_an.aspx"
+						target="_blank">has been increasing over the years</a>, thereby
+					lowering the ratio artificially. It is a well-known PR technique to
+					gloss over a piece of bad news (number of service disruptions) with
+					red herrings as distraction. In this case, the red herring is the
+					number of train-kilometres operated, which the authorities know for
+					a fact, that it will be increasing in the foreseeable future due to
+					the surge in passenger demand and expansion of the the rail network
+					and train fleet. It is too hasty to claim credit on the basis of a
+					single metric. Transparency is the key to rebuilding the trust lost.
+				</p>
+
 				<section id="jointteam">
 					<h2>Train Faults Halved?</h2>
 					<hr />
@@ -182,6 +277,13 @@
 							target="_blank">3.91 trains withdrawn</a> (per 100,000 km) from
 						January through April 2012.
 					</p>
+					
+					<div id="db-line-faultts">
+						<div id="control1"></div>
+						<div id="chart1"></div>
+						<div id="chart2"></div>
+					</div>
+					
 					<p>Observations</p>
 					<ul class="essay">
 						<li>The second half of 2012 saw a higher frequency of service
@@ -210,11 +312,10 @@
 					<p class="essay">If the LTA-SMRT Joint Team wishes to convince
 						the public that train services have become more reliable, they
 						should be more transparent. The train withdrawal rate is only a
-						single metric and being a lead KPI, it does not necessarily lead
-						to real improvements in commuter experience on the ground.
-						Evidently, the data shows a contrarian picture. If the LTA-SMRT
-						Joint Team is truly confident in their performance, it should
-						publish lag KPIs as well, such as the monthly SSA figures for each
+						single metric and being a <em>lead</em> KPI, it may not result
+						in real improvements to commuter experience on the ground.
+						If the LTA-SMRT Joint Team is truly confident in their performance, it should
+						publish <em>lag</em> KPIs, such as the monthly SSA figures for each
 						rail line.</p>
 				</section>
 			</div>
@@ -233,6 +334,8 @@
 			'packages' : [ 'controls' ]
 		});
 		google.setOnLoadCallback(function(){
+			FailRail.Charter.incidentsCount();
+			FailRail.Charter.incidents();
 			FailRail.Charter.lineFaultTimeSeries();
 		});
 	</script>
@@ -240,17 +343,21 @@
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript">
-		// Tooltip options
-		(function pageUI() {
-			var options = {
+		$(document).ready(function() {
+			$("#tip-ssa").tooltip({
 				title : "99.5% SSA can afford at most 3 delay hours each month",
 				placement : "top",
 				html : "false",
 				trigger : "hover"
-			};
-			$("#tip-ssa").tooltip(options);
-
-		})();
+			});
+			$("#incidents-chart1").tooltip({
+				title : "Click on the column heading to sort the data",
+				placement : "top",
+				html : "false",
+				trigger : "hover"
+			});
+		});
+		
 	</script>
 
 

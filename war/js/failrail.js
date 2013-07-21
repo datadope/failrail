@@ -259,6 +259,145 @@ FailRail.Charter = {
 
 		dashboard.draw(data);
 	},
+	
+	incidentsCount : function() {
+		var chart = new google.visualization.ChartWrapper({
+			"containerId" : "incidents-count",
+			"chartType" : "BarChart",
+			"dataSourceUrl" : FailRail.Charter.dataSourceUrl,
+			
+			// cannot sort count if pivot by Category(K)
+			
+			"query" : "select I, count(A) "
+				+ "where R >= date '2010-01-01' and R < date '2013-07-01' "
+				+ "and Q > 30 "
+				+ "and K != 'Others' "
+				+ "and K != 'Person hit by train' "
+				+ "and K != 'Maintenance/Upgrading' "
+				+ "group by I "
+				+ "pivot K ",
+			"options" : {
+				"title" : "Number of Service Disruptions Exceeding 30 Minutes In Duration (January 2010 - June 2013)",
+				"hAxis" : {
+					"textStyle" : {
+						"fontSize" : 14
+					},
+					"format" : "#"
+				},
+				"vAxis" : {
+					"title" : "",
+					"textPosition" : "out"
+				},
+				"legend" : {
+					"position" : "top",
+					"textStyle" : {
+						"fontSize" : 12
+					}
+				},
+				"chartArea" : {
+					"width" : "95%",
+					"height" : "80%",
+					"top" : 50,
+					"left" : 130
+				},
+				"focusTarget" : "category",
+				"isStacked" : true
+			}
+		});
+		chart.draw();
+	},
+	
+	incidents : function() {
+		var query = new google.visualization.Query(
+				FailRail.Charter.dataSourceUrl);
+
+		// Disruptions that delay more than 30 minutes
+		// between 2010 and June 2013
+		
+		query.setQuery("select A, B, R, K, Q/60, I "
+				+ "where R >= date '2010-01-01' and R < date '2013-07-01' "
+				+ "and Q > 30 "
+				+ "and K != 'Others' "
+				+ "and K != 'Person hit by train' "
+				+ "and K != 'Maintenance/Upgrading' "
+				+ "order by R desc "
+				+ "label Q/60 'Duration (Hours)', R 'Date', I 'Rail Line', A 'Incident' "
+				+ "format Q/60 '#.#', R 'dd MMM yyyy' ");
+		query.send(FailRail.Charter.incidentsDashboard);
+	},
+	
+	incidentsDashboard : function(response) {
+
+		var dashboardId = "incidents";
+
+		var data = response.getDataTable();
+		
+		var dashboard = new google.visualization.Dashboard(document
+				.getElementById(dashboardId));
+		
+		// Filter rail line
+		
+		var lineControl = new google.visualization.ControlWrapper({
+			"controlType" : "CategoryFilter",
+			"containerId" : dashboardId + "-control1",
+			"options" : {
+				"filterColumnLabel" : "Rail Line",
+				"ui" : {
+					"labelStacking" : "horizontal",
+					"allowTyping" : false,
+					"allowMultiple" : false
+				}
+			},
+			"state" : {
+				"selectedValues" : [ "North-South Line" ]
+			}
+		});
+		
+		// Filter category (cause of delay)
+		
+		var categoryControl = new google.visualization.ControlWrapper({
+			"controlType" : "CategoryFilter",
+			"containerId" : dashboardId + "-control2",
+			"options" : {
+				"filterColumnLabel" : "Category",
+				"ui" : {
+					"labelStacking" : "horizontal",
+					"allowTyping" : false,
+					"allowMultiple" : false
+				}
+			}
+		});
+		
+		// Filter length of delay
+		
+		var durationControl = new google.visualization.ControlWrapper({
+			"controlType" : "NumberRangeFilter",
+			"containerId" : dashboardId + "-control3",
+			"options" : {
+				"filterColumnLabel" : "Duration (Hours)",
+				"ui" : {
+					"labelStacking" : "horizontal",
+					"orientation" : "horizontal",
+					"unitIncrement" : 1
+				}
+			}
+		});
+		
+		var tableChart = new google.visualization.ChartWrapper({
+			"chartType" : "Table",
+			"containerId" : dashboardId + "-chart1",
+			"options" : {
+				"showRowNumber" : true,
+				"page" : "disable",
+				"height" : "40em",
+				"width" : "100%"
+			}
+		});
+		
+		dashboard.bind([ lineControl, categoryControl, durationControl ], [ tableChart ]);
+
+		dashboard.draw(data);
+	},
 
 	lineFaultTimeSeries : function() {
 
