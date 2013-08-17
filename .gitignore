@@ -36,6 +36,11 @@ war/bubblechart.html
 war/db1-line.html
 war/gmapsv3.html
 
+# Project specific libraries
+
+war/WEB-INF/lib
+war/WEB-INF/classes
+
 
 #################
 ## Visual Studio

@@ -411,7 +411,7 @@ FailRail.Charter = {
 				+ "group by G, I "
 				+ "pivot K " + "order by G " + "label I 'Rail Line"
 				+ "', G 'Date" + "', count(A) '', sum(Q)/60 '' "
-				+ "format sum(Q)/60 '#.# hours' ");
+				+ "format sum(Q)/60 '#.# hours', G 'MMM yyyy' ");
 		query.send(FailRail.Charter.lineFaultTimeSeriesDashboard);
 	},
 
@@ -465,7 +465,7 @@ FailRail.Charter = {
 							}
 						},
 						"hAxis" : {
-							"format" : "MMM yyyy",
+							"format" : "",
 							"textPosition" : "out",
 							"textStyle" : {
 								"fontSize" : 14
@@ -508,7 +508,7 @@ FailRail.Charter = {
 					}
 				},
 				"hAxis" : {
-					"format" : "MMM yyyy",
+					"format" : "",
 					"textPosition" : "out",
 					"textStyle" : {
 						"fontSize" : 14
