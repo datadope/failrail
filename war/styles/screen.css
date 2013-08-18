@@ -1,5 +1,14 @@
 /* Global Styles
 ********************************************************/
+
+/* Fix for tooltip text not wrapping
+@url http://stackoverflow.com/questions/13338780/how-to-make-twitter-bootstrap-tooltips-have-multiple-lines 
+*/
+
+.tooltip-inner {
+    white-space:pre-wrap;
+}
+
 h1 {
 	margin-bottom: 0.5em;
 }
@@ -189,12 +198,17 @@ based on bootstrap, generated from charliepark.org
 /* TimeMap
 ********************************************************/
 
-/* Fix for Bootstrap issue with Google Maps
-http://stackoverflow.com/questions/9141249/twitter-bootstrap-css-affecting-google-maps 
-https://github.com/twitter/bootstrap/issues/2410
+/* Fix for bootstrap conflict with google maps
+@url http://stackoverflow.com/questions/9141249/twitter-bootstrap-css-affecting-google-maps
+@url https://github.com/twitter/bootstrap/issues/2410
 */
-div#map img {
+#map img, #timemap img {
 	max-width: none;
+}
+
+#map label {
+	width: auto;
+	display: inline;
 }
 
 div#map label {
@@ -213,10 +227,6 @@ div#timemap {
 	height: 60em;
 	margin: 0 auto;
 	overflow: hidden;
-}
-
-div#timemap img {
-	max-width: none; /* fix for google maps issue #1552 */
 }
 
 div#timelinecontainer {
@@ -245,7 +255,7 @@ div#map {
 #mapinfowindow {
 	width: 25em;
 	/* 25em is the min width in FF to prevent source links from wrapping */
-	font-size: 1em;
+	font-size: 1.1em;
 	/* Any smaller font size will produce scroll bars on >6 links */
 	margin-top: .6em;
 	/* leave some space for the close button at the top of the window */

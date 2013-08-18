@@ -307,21 +307,55 @@ FailRail.Charter = {
 		chart.draw();
 	},
 	
-	incidents : function() {
+	incidents : function(params) {
 		var query = new google.visualization.Query(
 				FailRail.Charter.dataSourceUrl);
-
+		
+		var fromDate, toDate, minDuration;
+		
+		// Set defaults
 		// Disruptions that delay more than 30 minutes
 		// between 2010 and June 2013
+
+		if (params === undefined || Util.String.IsBlank(params.fromDate)) {
+			fromDate = "2010-01-01";
+		} else {
+			fromDate = params.fromDate;
+		}
 		
-		query.setQuery("select A, B, R, K, Q/60, I "
-				+ "where R >= date '2010-01-01' and R < date '2013-07-01' "
-				+ "and Q > 30 "
-				+ "and K != 'Others' "
+		if (params === undefined || Util.String.isBlank(params.toDate)) {
+			toDate = "2013-07-01";
+		} else {
+			toDate = params.toDate;
+		}
+		
+		if (params === undefined || Util.String.isBlank(params.minDuration)) {
+			minDuration = "31";
+		} else {
+			minDuration = params.minDuration;
+		}
+		
+		// Default selected rail line: North-South Line
+		
+		if (params === undefined || Util.String.IsBlank(params.railLine)) {
+			window.selectedRailLine = "North-South Line";
+		} else {
+			window.selectedRailLine = params.railLine;
+		}
+		
+		query.setQuery("select A, B, R, K, Q/60, I, year(R) "
+				+ "where R >= date '"
+				+ fromDate
+				+ "' and R < date '"
+				+ toDate
+				+ "' "
+				+ " and Q >= " 
+				+ minDuration
+				+ " and K != 'Others' "
 				+ "and K != 'Person hit by train' "
 				+ "and K != 'Maintenance/Upgrading' "
 				+ "order by R desc "
-				+ "label Q/60 'Duration (Hours)', R 'Date', I 'Rail Line', A 'Incident' "
+				+ "label Q/60 'Duration (Hours)', R 'Date', I 'Rail Line', A 'Incident', year(R) 'Year' "
 				+ "format Q/60 '#.#', R 'dd MMM yyyy' ");
 		query.send(FailRail.Charter.incidentsDashboard);
 	},
@@ -349,7 +383,23 @@ FailRail.Charter = {
 				}
 			},
 			"state" : {
-				"selectedValues" : [ "North-South Line" ]
+				"selectedValues" : [ window.selectedRailLine ]
+			}
+		});
+		
+		// Filter year
+		
+		var yearControl = new google.visualization.ControlWrapper({
+			"controlType" : "CategoryFilter",
+			"containerId" : dashboardId + "-control2",
+			"options" : {
+				"filterColumnLabel" : "Year",
+				"ui" : {
+					"labelStacking" : "horizontal",
+					"allowTyping" : false,
+					"allowMultiple" : false,
+					"caption" : "Everything"
+				}
 			}
 		});
 		
@@ -357,13 +407,14 @@ FailRail.Charter = {
 		
 		var categoryControl = new google.visualization.ControlWrapper({
 			"controlType" : "CategoryFilter",
-			"containerId" : dashboardId + "-control2",
+			"containerId" : dashboardId + "-control3",
 			"options" : {
 				"filterColumnLabel" : "Category",
 				"ui" : {
 					"labelStacking" : "horizontal",
 					"allowTyping" : false,
-					"allowMultiple" : false
+					"allowMultiple" : false,
+					"caption" : "Everything"
 				}
 			}
 		});
@@ -372,7 +423,7 @@ FailRail.Charter = {
 		
 		var durationControl = new google.visualization.ControlWrapper({
 			"controlType" : "NumberRangeFilter",
-			"containerId" : dashboardId + "-control3",
+			"containerId" : dashboardId + "-control4",
 			"options" : {
 				"filterColumnLabel" : "Duration (Hours)",
 				"ui" : {
@@ -394,7 +445,15 @@ FailRail.Charter = {
 			}
 		});
 		
-		dashboard.bind([ lineControl, categoryControl, durationControl ], [ tableChart ]);
+		tableChart.setView({
+			
+			// Do not show year column
+			// Show date column instead
+			
+			"columns" : [ 0, 1, 2, 3, 4, 5 ]
+		});
+		
+		dashboard.bind([ lineControl, yearControl, categoryControl, durationControl ], [ tableChart ]);
 
 		dashboard.draw(data);
 	},
@@ -1466,10 +1525,27 @@ FailRail.Charter = {
 
 };
 
-FailRail.Util = {
+var Util = {};
+
+Util.DateTime = {
 	
 	daysAgo : function(from) {
 		var to = new Date();
 		return Math.floor((to - from)/1000/60/60/24);
 	}
 };
+
+Util.String = {
+
+	// String utiliy functions
+	// @url:
+	// http://stackoverflow.com/questions/154059/how-do-you-check-for-an-empty-string-in-javascript
+
+	isEmpty : function(str) {
+		return (!str || 0 === str.length);
+	},
+
+	isBlank : function(str) {
+		return (!str || /^\s*$/.test(str));
+	}
+}
