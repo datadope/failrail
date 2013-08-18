@@ -260,7 +260,41 @@ FailRail.Charter = {
 		dashboard.draw(data);
 	},
 	
-	incidentsCount : function() {
+	incidentsCount : function(params) {
+		var fromDate, toDate, minDuration, title;
+		
+		// Set defaults
+		// Disruptions that delay more than 30 minutes
+		// between 2010 and June 2013
+
+		if (params === undefined || Util.String.IsBlank(params.fromDate)) {
+			fromDate = "2010-01-01";
+		} else {
+			fromDate = params.fromDate;
+		}
+		
+		if (params === undefined || Util.String.isBlank(params.toDate)) {
+			toDate = "2013-07-01";
+		} else {
+			toDate = params.toDate;
+		}
+		
+		if (params === undefined || Util.String.isBlank(params.minDuration)) {
+			minDuration = "31";
+		} else {
+			minDuration = params.minDuration;
+		}
+		
+		title = "Number of Service Disruptions Exceeding 30 Minutes In Duration ("
+			+ Util.DateTime.getMonthName(parseInt(fromDate.slice(5,7), 10) - 1)
+			+ " "
+			+ fromDate.slice(0,4)
+			+ " - "
+			+ Util.DateTime.getMonthName(parseInt(toDate.slice(5,7), 10) - 1)
+			+ " "
+			+ toDate.slice(0,4)
+			+ ")";
+		
 		var chart = new google.visualization.ChartWrapper({
 			"containerId" : "incidents-count",
 			"chartType" : "BarChart",
@@ -269,15 +303,20 @@ FailRail.Charter = {
 			// cannot sort count if pivot by Category(K)
 			
 			"query" : "select I, count(A) "
-				+ "where R >= date '2010-01-01' and R < date '2013-07-01' "
-				+ "and Q > 30 "
-				+ "and K != 'Others' "
+				+ "where R >= date '"
+				+ fromDate
+				+ "' and R < date '"
+				+ toDate
+				+ "' "
+				+ "and Q >= "
+				+ minDuration
+				+ " and K != 'Others' "
 				+ "and K != 'Person hit by train' "
 				+ "and K != 'Maintenance/Upgrading' "
 				+ "group by I "
 				+ "pivot K ",
 			"options" : {
-				"title" : "Number of Service Disruptions Exceeding 30 Minutes In Duration (January 2010 - June 2013)",
+				"title" : title,
 				"hAxis" : {
 					"textStyle" : {
 						"fontSize" : 14
@@ -1532,6 +1571,21 @@ Util.DateTime = {
 	daysAgo : function(from) {
 		var to = new Date();
 		return Math.floor((to - from)/1000/60/60/24);
+	},
+
+	getMonthName : function(index) {
+		if (index === 1) return "February";
+		if (index === 2) return "March";
+		if (index === 3) return "April";
+		if (index === 4) return "May";
+		if (index === 5) return "June";
+		if (index === 6) return "July";
+		if (index === 7) return "August";
+		if (index === 8) return "September";
+		if (index === 9) return "October";
+		if (index === 10) return "November";
+		if (index === 11) return "December";
+		return "January";
 	}
 };
 
