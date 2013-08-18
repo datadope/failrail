@@ -267,7 +267,7 @@ FailRail.Charter = {
 		// Disruptions that delay more than 30 minutes
 		// between 2010 and June 2013
 
-		if (params === undefined || Util.String.IsBlank(params.fromDate)) {
+		if (params === undefined || Util.String.isBlank(params.fromDate)) {
 			fromDate = "2010-01-01";
 		} else {
 			fromDate = params.fromDate;
@@ -352,11 +352,11 @@ FailRail.Charter = {
 		
 		var fromDate, toDate, minDuration;
 		
-		// Set defaults
+		// Set defaults for query params
 		// Disruptions that delay more than 30 minutes
 		// between 2010 and June 2013
 
-		if (params === undefined || Util.String.IsBlank(params.fromDate)) {
+		if (params === undefined || Util.String.isBlank(params.fromDate)) {
 			fromDate = "2010-01-01";
 		} else {
 			fromDate = params.fromDate;
@@ -376,7 +376,7 @@ FailRail.Charter = {
 		
 		// Default selected rail line: North-South Line
 		
-		if (params === undefined || Util.String.IsBlank(params.railLine)) {
+		if (params === undefined || Util.String.isBlank(params.railLine)) {
 			window.selectedRailLine = "North-South Line";
 		} else {
 			window.selectedRailLine = params.railLine;
@@ -1602,4 +1602,4 @@ Util.String = {
 	isBlank : function(str) {
 		return (!str || /^\s*$/.test(str));
 	}
-}
+};

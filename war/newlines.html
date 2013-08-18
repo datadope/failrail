@@ -152,39 +152,84 @@
 		<div class="row-fluid">
 			<div class="offset1 span10">
 				<h1>
-					Running In Circles<small> Service disruptions on newer rail
-						lines</small>
+					Running In Circles<small> On the Circle Line</small>
 				</h1>
 				<hr />
-
-				<p class="pull-right">
-					POSTED: 18 August 2013
-				</p>
-				
-				<div class="clearfix"></div>
 
 				<p class="essay">
 					SMRT's <a href="http://en.wikipedia.org/wiki/Circle_MRT_Line"
 						target="_blank">Circle Line</a> is the newest rail line in
-					Singapore. The Circle Line was opened in stages since 2009 and it
+					Singapore (as at August 2013). The Circle Line was opened in stages since 2009 and it
 					became fully operational in 2011.
 				</p>
 
 				<p class="essay">
-					In Minister Lui's <a
+					According to Minister Lui Tuck Yew's <a
 						href="http://app.mot.gov.sg/News_Centre/Latest_News/NewsID/1F81BFFF3DF32538/Written_reply_by_Transport_Minister_Lui_Tuck_Yew_to_the_Parliamentary_Question_on_MRT_Service_Disru.aspx"
-						target="_blank">parliamentary reply</a> on 13 August 2013, he
-					stated that on the Circle Line, 
-					there were only three service disruptions of more than 30 minutes each year from 2010 to 2012. 
-					<strong>In 2013, there was none so far.</strong> 
+						target="_blank">parliamentary reply</a> on 13 August 2013, 
+					there were three service disruptions of more than 30 minutes on the Circle Line <em>each year</em> from 2010 to 2012. 
+					<strong>In 2013, there was none so far.</strong> That makes a total of 9 service disruptions exceeding 30 minutes 
+					on the Circle Line since 2010. 
+				</p>
+
+				<p class="essay">
+					However, our <a
+						href="https://docs.google.com/spreadsheet/ccc?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&usp=sharing"
+						target="_blank">data</a> doesn't agree with Minister Lui's statement. 
+					The following table shows the details of service disruptions that exceeded 30 minutes in duration:
+				</p>
+
+				<div id="incidents" class="dashboard">
+					<div id="incidents-control1" class="inline-top"></div>
+					<div id="incidents-control2" class="inline-top"></div>
+					<div id="incidents-control3" class="inline-top"></div>
+					<div id="incidents-control4" class="inline-top"></div>
+					<div id="incidents-chart1"></div>		
+				</div>
+				
+				<p>Let's tally the yearly number of service disruptions exceeding 30 minutes on the Circle Line: 
 				</p>
 				
-				<div id="circleline" class="dashboard">
-					<div id="circleline-control1" class="inline-top"></div>
-					<div id="circleline-control2" class="inline-top"></div>
-					<div id="circleline-control3" class="inline-top"></div>
-					<div id="circleline-chart1"></div>		
-				</div>
+				<ul class="essay">
+					<li>From January - August 2013, there were 2 such incidents, one of which exceeded one hour in duration.
+						<strong>This count was omitted in Minister Lui's parliamentary reply.</strong>
+					</li>
+					<li>In 2012, there were 10 such incidents, out of which 6 exceeded one hour in duration.</li>
+					<li>In 2011, there were 3 such incidents, out of which 2 exceeded one hour in duration.</li>
+					<li>We have no data in 2010, so we will take the official account that there were 3 such incidents in 2010.</li>
+				</ul>
+				
+				<p class="essay">
+					All in, there should be <strong>18</strong> (2 + 10 + 3 + 3) service disruptions of more than 30 minutes on the Circle Line 
+					since 2010. This is double that of the figure Minister Lui provided in Parliament. Why the difference? 
+				</p>
+
+				<h2>Comparison With Other Rail Lines</h2>
+				<hr />
+
+				<p class="essay">
+					In terms of service reliability, how does the Circle Line fare in comparison with other rail lines?
+				</p>
+
+				<div id="incidents-count" class="chart"></div>
+
+				<p class="essay">
+					Despite being the newest rail line, the Circle Line actually suffered <em>more</em> service disruptions
+					than the North-East Line, which is six years older than the Circle Line. In particular, the Circle Line experienced 5 track 
+					faults whereas the North-East Line had none. The most recent track fault occured on the Circle Line on 27 July 2013, which 
+					delayed service for more than an hour.
+				</p>
+				
+				<h2>North-East Line</h2>
+				<hr />
+
+				<p class="essay">
+					The parliamentary reply also touched on the woes of the North-East
+					Line. We maintain our call for more transparency and accountability
+					in a <a
+						href="http://www.theonlinecitizen.com/2013/06/a-plea-to-sbs-transit-and-lta"
+						target="_blank">separate article</a> written for TheOnlineCitizen.
+				</p>
 
 			</div>
 		</div>
@@ -202,9 +247,18 @@
 			'packages' : [ 'controls' ]
 		});
 		google.setOnLoadCallback(function(){
-			//FailRail.Charter.incidentsCount();
-			//FailRail.Charter.incidents();
-			//FailRail.Charter.lineFaultTimeSeries();
+			FailRail.Charter.incidentsCount({
+				fromDate : "2011-01-01",
+				toDate : "2013-08-01",
+				minDuration : 31
+			});
+			FailRail.Charter.incidents({
+				fromDate : "2011-01-01",
+				toDate : "2013-08-01",
+				minDuration : 31,
+				railLine : "Circle Line"
+			});
+			
 		});
 	</script>
 
@@ -212,12 +266,7 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$("#tip-ssa").tooltip({
-				title : "99.5% SSA can afford at most 3 delay hours each month",
-				placement : "top",
-				html : "false",
-				trigger : "hover"
-			});
+		
 			$("#incidents-chart1").tooltip({
 				title : "Click on the column heading to sort the data",
 				placement : "top",
