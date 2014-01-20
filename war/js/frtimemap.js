@@ -63,7 +63,7 @@ $(function() {
 		featureType : "water",
 		elementType : "all",
 		stylers : [ {
-			hue : "#00ffe6"
+			//hue : "#00ffe6"
 		}, {
 			saturation : -20
 		} ]

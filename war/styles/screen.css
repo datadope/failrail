@@ -63,6 +63,16 @@ hr.footer-line {
 	font-size: .8em;
 }
 
+.fill-height {
+	height: 100%;
+	min-height: 100%;
+}
+
+.fill-width {
+	width: 100%;
+	min-width: 100%;
+}
+
 .red {
 	background-color: rgb(242, 112, 99);
 }
