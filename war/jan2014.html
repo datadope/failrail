@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Map">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta itemprop="name" content="FAILRAIL.sg">
+        <meta itemprop="description"
+        content="A timeline of train service disruptions in Singapore, visualized on Google Maps">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- BEGIN Facebook Open Graph tags -->
+        <meta property="og:title" content="FAILRAIL.sg" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://failrailsg.appspot.com/" />
+        <meta property="og:image" content="" />
+        <meta property="og:site_name" content="FAILRAIL.sg" />
+        <meta property="fb:app_id" content="108496995971453" />
+        <!-- END Facebook Open Graph tags -->
+
+        <title>Train Service Reliability | FAILRAIL.sg</title>
+
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"
+        type="text/css">
+
+        <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css"
+        type="text/css">
+
+        <link rel="stylesheet" href="styles/screen.css" type="text/css">
+
+        <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-28949207-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </head>
+
+    <body>
+        <!-- BEGIN Javascript SDK for Facebook Like Button HTML5 Plugin -->
+        <div id="fb-root"></div>
+        <script>
+            ( function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id))
+                        return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <!-- END Javascript SDK for Facebook Like Button HTML5 Plugin -->
+
+        <!-- BEGIN Top nav bar -->
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+
+                    <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                    <a class="btn btn-navbar" data-toggle="collapse"
+                    data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+
+                    <a class="brand" href="index.html">FAILRAIL.sg</a>
+
+                    <div class="nav-collapse collapse">
+
+                        <ul class="nav">
+                            <li>
+                                <a href="index.html">Map</a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle"
+                                data-toggle="dropdown" href="#">Dashboard <b class="caret"></b> </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <li>
+                                        <a href="overview.html">Overview</a>
+                                    </li>
+                                    <li>
+                                        <a href="major-disruptions.html">Major Disruptions</a>
+                                    </li>
+
+                                    <li class="nav-header">
+                                        Rail Line
+                                    </li>
+                                    <li>
+                                        <a href="line.html">Line Fault</a>
+                                    </li>
+                                    <li>
+                                        <a href="length-of-delay.html">Length of Delay</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a class="dropdown-toggle"
+                                data-toggle="dropdown" href="#">Reports <b class="caret"></b> </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <li class="nav-header">
+                                        Service Reliability
+                                    </li>
+                                    <li class="active">
+                                        <a href="jan2014.html">Number Game</a>
+                                    </li>
+                                    <li>
+                                        <a href="train-faults-halved.html">Train Faults
+                                        Halved?</a>
+                                    </li>
+                                    <li>
+                                        <a href="newlines.html">New Rail Lines</a>
+                                    </li>
+                                    <li>
+                                        <a href="fines.html">Fine Lines</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="ebutton.html">Emergency Button Activations</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a
+                                href="https://script.google.com/macros/s/AKfycbyUootM9U5uXo_hcFD3GZXX5RHSOhMN6JvJxfnem2uRg4p78MU/exec"
+                                target="_blank">Search</a>
+                            </li>
+                            <li>
+                                <a href="http://goo.gl/HQrby" target="_blank">Calendar</a>
+                            </li>
+                            <li>
+                                <a
+                                href="https://docs.google.com/folder/d/0B0dFf0ojY-LPeTl5VnpGRzBTTzA/edit"
+                                target="_blank">Archive</a>
+                            </li>
+                            <li>
+                                <a
+                                href="https://docs.google.com/spreadsheet/pub?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&output=html"
+                                target="_blank">Data</a>
+                            </li>
+                            <li>
+                                <a href="about.html">About</a>
+                            </li>
+                        </ul>
+
+                        <div id="gplus-button" class="pull-right">
+                            <!-- g-plusone button does not display properly if mixed with other css classes -->
+                            <div class="g-plusone" data-size="medium"
+                            data-href="http://failrailsg.appspot.com/"></div>
+                        </div>
+                        <div id="tweet-button" class="pull-right">
+                            <a href="https://twitter.com/share" class="twitter-share-button"
+                            data-url="http://failrailsg.appspot.com/"
+                            data-text="FAILRAIL.sg visualizing train service disruptions in Singapore">Tweet</a>
+                        </div>
+                        <div id="fb-like-button" class="pull-right">
+                            <div class="fb-like" data-href="http://failrailsg.appspot.com/"
+                            data-send="false" data-layout="button_count"
+                            data-show-faces="false"></div>
+                        </div>
+                    </div>
+                    <!-- /.nav-collapse -->
+
+                </div>
+            </div>
+        </div>
+        <!-- END Top nav bar -->
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="offset1 span10">
+                    <h1> A Number Game <small>January 2014</small></h1>
+                    <hr />
+                    <h2>Playing With Numbers</h2>
+                    <p class="essay">
+                        Reality hits hard when the latest <a href="//sg.news.yahoo.com/passengers-detrained-at-kranji--train-stations-shuttered-in-north-south-mrt-line-power-failure-060148162.html" target="_blank">walk-the-track</a> happened only two days after LTA's release of <a href="//app.lta.gov.sg/apps/news/page.aspx?c=2&id=251e3615-8d93-4987-9f63-54b62fd6e03f" target="_blank">2013's report card</a> on train service reliability. In the latest report, LTA stated that <em>"across the MRT network, the number of incidents causing delays of more than 5 minutes for every 100,000 kilometres travelled has declined by 20% in 2013 compared to 2012."</em> Notice that LTA did not report the actual number of service disruptions that occurred but a ratio. And the denominator of that ratio, <strong>number of train-kilometres travelled</strong>, happened to be increasing year-on-year, as the service providers struggled to cope with passenger demand by <a href="//app.mot.gov.sg/News_Centre/Latest_News/NewsID/10949FFF1D179832/Oral_Answer_to_Question_on_running_intervals_for_MRT_trains_during_peak_hours.aspx" target="_blank">adding train trips</a>. SMRT's data is presented below (similar data for SBS Transit could not be found).
+                    </p>
+                    <div>
+                        <div id="operating-km" class="chart chart-short"></div>
+                        <p class="muted">
+                            <small>Source: SMRT Investor Relations, <a href="//www.smrt.com.sg/AboutSMRT/InvestorRelations/KeyOperatingMatrix/Trains.aspx" target="_blank">Key Operating Matrix for Trains</a></small>
+                        </p>
+                    </div>
+                    <p class="well">
+                        If the number of train-kilometres travelled (denominator) grows at a faster rate than service disruptions (numerator), then naturally the ratio will always be coming down. In that case, does the operating distance travelled still serve as a relevant basis for comparison?
+                    </p>
+                    <p class="essay">
+                        In the news, LTA reported that there were 309 incidents that led to delays of more than five minutes across the MRT network last year, down from 396 in 2012. The figures exclude the newly opened Downtown Line stage 1. The number of delays lasting more than 10 minutes also dropped from 51 in 2012 to 36 last year. However, there were eight disruptions lasting more than 30 minutes last year, the same as in 2012 (<a href="//ride.asiaone.com/news/general/story/shorter-wait-mrt-more-train-trips" target="_blank"><em>The Straits Times, 12 January 2014</em></a>). 
+                    </p>
+                    <div>
+                        <div id="delay-histogram-all-lines-yearly" class="chart chart-short"></div>
+                        <p class="muted">
+                            <small>The following categories are excluded from this chart: Maintenance/upgrading and events beyond the control of the service operators, such as lightning strikes. See <a href="#delay-histogram">this chart</a> for the monthly breakdown.</small>
+                        </p>
+                    </div>
+                    <p class="essay">
+                        But <a href="//docs.google.com/spreadsheet/ccc?key=0AkdFf0ojY-LPdG52LWlpYU5kOG5USVpVbHAxMW5YSXc&usp=sharing" target="_blank">our database</a> shows much higher numbers for delays lasting more than 10 minutes. In particular, our database shows that there should be 68 and 32 delays lasting more than 30 minutes in 2012 and 2013 respectively. However, according to the LTA, there were only eight such incidents in 2012, and the same in 2013. Why such a big discrepancy in numbers? <strong>How does LTA determine the length of delay?</strong>
+                    </p>
+                    <p class="essay">
+                        All the incidents recorded in our database are obtained from publicly available sources (such as SMRT's Facebook page)** and supported with citations. We calculate the length of delay as the difference between the start time and end time of the incident (i.e. when the incident was resolved). If the end time is not officially reported, we will approximate the end time to be the first SMRT's tweet announcing that service has resumed. For cases where there is absolutely no information on the end time, then the length of delay is defaulted to 1 minute.
+                    </p>
+                    <p class="essay muted">
+                        **In contrast, SBS Transit’s presence on social media is effectively zero. Its Twitter account is inactive and it does not have a <a href="//www.facebook.com/permalink.php?story_fbid=434740349898400&id=188906804481757">Facebook page</a>. When delays occur, SBS Transit has to lean on LTA and SMRT to broadcast its public service announcements on social media.
+                    </p>
+                    <h2>The Official Standard</h2>
+                    <p class="essay">
+                        Under the licensing agreement between the Land Transport Authority (LTA) and the service operators, SMRT and SBS Transit are required to comply with the Operating Performance Standards (OPS), which stipulates a minimum level of train service availability in any month. This is known as the <strong>System Service Availability (SSA)</strong> standard. The service operators could be fined by the LTA if they fail to meet the SSA. The current SSA benchmark is 99.5%, which is equivalent to no more than a 6-minute delay for a typical revenue day and therefore, a maximum of 3 hours of delay each month (30 days * 6 minutes = 180 minutes). If SSA is the official measure of service reliability, then why doesn't the LTA make SSA figures publicly available?
+                    </p>
+                    <p class="essay">
+                        Nevertheless, based on publicly known service disruptions, we report the months in which rail lines have failed to meet the 99.5% SSA. Generally, service reliability did improve but not to the level where fare hikes are justifiable. Why should commuters pay higher fees when service providers are still not meeting operating requirements?
+                    </p>
+                    <div>
+                        <table class="table table-condensed table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Rail Line</th><th>Below 99.5% SSA In 2012</th><th>Below 99.5% SSA In 2013</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>East-West Line</td><td>
+                                    <p>
+                                        <strong>8 months</strong>
+                                    </p>
+                                    <p class="muted">
+                                        Jan, Feb, Mar, Apr, May, Jun, Aug, Oct
+                                    </p></td><td>
+                                    <p>
+                                        <strong>4 months</strong>
+                                    </p>
+                                    <p class="muted">
+                                        Apr, May, Jul, Nov
+                                    </p></td>
+                                </tr>
+                                <tr>
+                                    <td>North-South Line</td><td>
+                                    <p>
+                                        <strong>4 months</strong>
+                                    </p>
+                                    <p class="muted">
+                                        Feb, Apr, Aug, Oct
+                                    </p></td><td>
+                                    <p>
+                                        <strong>3 months</strong>
+                                    </p>
+                                    <p class="muted">
+                                        Apr, May, Jun <em>(rail cracks)</em>
+                                    </p></td>
+                                </tr>
+                                <tr>
+                                    <td>North-East Line</td><td>
+                                    <p>
+                                        <strong>2 months</strong>
+                                    </p>
+                                    <p class="muted">
+                                        Mar, Aug
+                                    </p></td><td>
+                                    <p>
+                                        <strong>2 months</strong>
+                                    </p>
+                                    <p class="muted">
+                                        Jan, Jun
+                                    </p></td>
+                                </tr>
+                                <tr>
+                                    <td>Circle Line</td><td>
+                                    <p>
+                                        <strong>2 months</strong>
+                                    </p>
+                                    <p class="muted">
+                                        Oct, Dec
+                                    </p></td><td>
+                                    <p>
+                                        <strong>Nil</strong>
+                                    </p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="muted">
+                            *<em>Service unavailability such as maintenance/upgrading and train door faults are not counted towards the SSA in this table. However, service disruptions with cause unknown are counted towards the SSA.</em>
+                        </p>
+                    </div>
+                    <div id="monthly-incidents-by-category" class="dashboard">
+                        <div id="monthly-incidents-by-category-control1"></div>
+                        <div id="monthly-incidents-by-category-chart1" class="chart"></div>
+                        <div id="monthly-incidents-by-category-chart2" class="chart"></div>
+                    </div>
+                    <div id="delay-histogram" class="dashboard">
+                        <div id="delay-histogram-control1"></div>
+                        <div id="delay-histogram-chart1" class="chart"></div>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-line" />
+        </div>
+        <!-- END of container -->
+
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript" src="js/newfailrail.js"></script>
+        <script type="text/javascript">
+            // Loads the Google Visualization libraries, requires jsapi
+            google.load('visualization', '1', {
+                'packages' : ['controls']
+            });
+            google.setOnLoadCallback(function() {
+                //failrail.dataviz.charts.operatingKm();
+                //failrail.dataviz.charts.delayHistogram("all lines yearly");
+                //failrail.dataviz.charts.monthlyIncidentsByCategory();
+                //failrail.dataviz.charts.delayHistogram();
+                
+                window.setTimeout(failrail.dataviz.charts.operatingKm, 1000);
+                window.setTimeout(failrail.dataviz.charts.delayHistogram, 2000, "all lines yearly");
+                window.setTimeout(failrail.dataviz.charts.monthlyIncidentsByCategory, 4000);
+                window.setTimeout(failrail.dataviz.charts.delayHistogram(), 8000);
+
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                
+            });
+
+        </script>
+
+        <!-- js for tweet button -->
+        <script>
+            ! function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, "script", "twitter-wjs");
+        </script>
+
+        <!-- js for google +1 button -->
+        <script type="text/javascript">
+            (function() {
+                var po = document.createElement('script');
+                po.type = 'text/javascript';
+                po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(po, s);
+            })();
+        </script>
+
+    </body>
+</html>

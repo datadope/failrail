@@ -1,32 +1,32 @@
 /* Global Styles
-********************************************************/
+ ********************************************************/
 
 /* Fix for tooltip text not wrapping
-@url http://stackoverflow.com/questions/13338780/how-to-make-twitter-bootstrap-tooltips-have-multiple-lines 
-*/
+ @url http://stackoverflow.com/questions/13338780/how-to-make-twitter-bootstrap-tooltips-have-multiple-lines
+ */
 
 .tooltip-inner {
-    white-space:pre-wrap;
+	white-space: pre-wrap;
 }
 
 h1 {
 	margin-bottom: 0.5em;
 }
 
-h2,h3,h4 {
+h2, h3, h4 {
 	margin: 1.5em 0 0.5em 0;
 }
 
 p.essay {
-	margin-bottom: 2em;
+	margin: 2em 0 2em 0;
 	text-align: justify;
 }
 
-ol.essay,ul.essay {
+ol.essay, ul.essay {
 	margin-bottom: 3em;
 }
 
-ol.essay li,ul.essay li {
+ol.essay li, ul.essay li {
 	text-align: justify;
 }
 
@@ -89,19 +89,19 @@ hr.footer-line {
 }
 
 /* Styling for filter buttons, color coded by rail lines
-based on bootstrap, generated from charliepark.org
-********************************************************/
+ based on bootstrap, generated from charliepark.org
+ ********************************************************/
 .btn-green {
 	background-color: hsl(125, 72%, 32%) !important;
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#35de43",
-		endColorstr="#168c20" );
+	endColorstr="#168c20" );
 	background-image: -khtml-gradient(linear, left top, left bottom, from(#35de43),
-		to(#168c20) );
+	to(#168c20) );
 	background-image: -moz-linear-gradient(top, #35de43, #168c20);
 	background-image: -ms-linear-gradient(top, #35de43, #168c20);
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #35de43),
-		color-stop(100%, #168c20) );
+	color-stop(100%, #168c20) );
 	background-image: -webkit-linear-gradient(top, #35de43, #168c20);
 	background-image: -o-linear-gradient(top, #35de43, #168c20);
 	background-image: linear-gradient(#35de43, #168c20);
@@ -115,13 +115,13 @@ based on bootstrap, generated from charliepark.org
 	background-color: hsl(270, 100%, 30%) !important;
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7f00ff",
-		endColorstr="#4c0099" );
+	endColorstr="#4c0099" );
 	background-image: -khtml-gradient(linear, left top, left bottom, from(#7f00ff),
-		to(#4c0099) );
+	to(#4c0099) );
 	background-image: -moz-linear-gradient(top, #7f00ff, #4c0099);
 	background-image: -ms-linear-gradient(top, #7f00ff, #4c0099);
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7f00ff),
-		color-stop(100%, #4c0099) );
+	color-stop(100%, #4c0099) );
 	background-image: -webkit-linear-gradient(top, #7f00ff, #4c0099);
 	background-image: -o-linear-gradient(top, #7f00ff, #4c0099);
 	background-image: linear-gradient(#7f00ff, #4c0099);
@@ -135,13 +135,13 @@ based on bootstrap, generated from charliepark.org
 	background-color: hsl(185, 100%, 35%) !important;
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#19ebff",
-		endColorstr="#00a3b2" );
+	endColorstr="#00a3b2" );
 	background-image: -khtml-gradient(linear, left top, left bottom, from(#19ebff),
-		to(#00a3b2) );
+	to(#00a3b2) );
 	background-image: -moz-linear-gradient(top, #19ebff, #00a3b2);
 	background-image: -ms-linear-gradient(top, #19ebff, #00a3b2);
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #19ebff),
-		color-stop(100%, #00a3b2) );
+	color-stop(100%, #00a3b2) );
 	background-image: -webkit-linear-gradient(top, #19ebff, #00a3b2);
 	background-image: -o-linear-gradient(top, #19ebff, #00a3b2);
 	background-image: linear-gradient(#19ebff, #00a3b2);
@@ -155,13 +155,13 @@ based on bootstrap, generated from charliepark.org
 	background-color: hsl(160, 10%, 27%) !important;
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8ba099",
-		endColorstr="#3d4b47" );
+	endColorstr="#3d4b47" );
 	background-image: -khtml-gradient(linear, left top, left bottom, from(#8ba099),
-		to(#3d4b47) );
+	to(#3d4b47) );
 	background-image: -moz-linear-gradient(top, #8ba099, #3d4b47);
 	background-image: -ms-linear-gradient(top, #8ba099, #3d4b47);
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8ba099),
-		color-stop(100%, #3d4b47) );
+	color-stop(100%, #3d4b47) );
 	background-image: -webkit-linear-gradient(top, #8ba099, #3d4b47);
 	background-image: -o-linear-gradient(top, #8ba099, #3d4b47);
 	background-image: linear-gradient(#8ba099, #3d4b47);
@@ -171,7 +171,7 @@ based on bootstrap, generated from charliepark.org
 	-webkit-font-smoothing: antialiased;
 }
 
-#timeline-zoom-tip,#hello-world,#linelegend {
+#timeline-zoom-tip, #hello-world, #linelegend {
 	margin: 0 0 1em 1em;
 	display: inline-block;
 	vertical-align: top;
@@ -196,12 +196,12 @@ based on bootstrap, generated from charliepark.org
 }
 
 /* TimeMap
-********************************************************/
+ ********************************************************/
 
 /* Fix for bootstrap conflict with google maps
-@url http://stackoverflow.com/questions/9141249/twitter-bootstrap-css-affecting-google-maps
-@url https://github.com/twitter/bootstrap/issues/2410
-*/
+ @url http://stackoverflow.com/questions/9141249/twitter-bootstrap-css-affecting-google-maps
+ @url https://github.com/twitter/bootstrap/issues/2410
+ */
 #map img, #timemap img {
 	max-width: none;
 }
@@ -262,7 +262,7 @@ div#map {
 }
 
 /* Toastr
-********************************************************/
+ ********************************************************/
 
 #toast-container {
 	/* so that toast messages take up less space */
@@ -271,14 +271,14 @@ div#map {
 
 .toast-info {
 	/* army uniform #353F3E */
-    background-color: #353F3E;
+	background-color: #353F3E;
 }
 
 .toast-message div#event-details {
 }
 
 /* Charts
-********************************************************/
+ ********************************************************/
 
 /* tooltip for date range slider */
 #tip-date-slider {
@@ -296,8 +296,21 @@ div#map {
 	margin: 0 0 2em 0;
 }
 
+.chart {
+	height: 25em;
+	margin: 1em 0 1em 0;
+}
+
+.chart.chart-short {
+	height: 20em;
+}
+
+.dashboard {
+	margin: 2em 0 2em 0;
+}
+
 /* About Page
-********************************************************/
+ ********************************************************/
 .frail-about #ecb-chart1 {
 	margin: 1em 0 4em 0; /* E-button chart on about page */
 }
@@ -309,8 +322,8 @@ div#map {
 }
 
 /* Emergency Button Activation Page
-********************************************************/
-#ecb-chart1,#ecb-chart2,#ecb-chart3,#ecb-chart4 {
+ ********************************************************/
+#ecb-chart1, #ecb-chart2, #ecb-chart3, #ecb-chart4 {
 	height: 25em;
 	margin: 2em 0 2em 0;
 }
@@ -320,16 +333,16 @@ div#map {
 }
 
 /* Dashboard 1 Charts
-********************************************************/
-#db1-control1,#db1-control2,#db1-control3 {
+ ********************************************************/
+#db1-control1, #db1-control2, #db1-control3 {
 	margin: 1em 0 0 2em;
 }
 
-#db1-control2,#db1-control3 {
+#db1-control2, #db1-control3 {
 	margin-left: 3em;
 }
 
-#db1-control4,#db2-control2 {
+#db1-control4, #db2-control2 {
 	width: 80em;
 	height: 4em;
 	margin-top: 1em;
@@ -339,7 +352,7 @@ div#map {
 	margin: 2em 0 0 2em;
 }
 
-#db1-chart1,#db1-chart2 {
+#db1-chart1, #db1-chart2 {
 	width: 80em;
 }
 
@@ -353,8 +366,8 @@ div#map {
 }
 
 /* Dashboard: Rail Line Fault (Time Series)
-********************************************************/
-#db-line-faultts #chart1,#db-line-faultts #chart2 {
+ ********************************************************/
+#db-line-faultts #chart1, #db-line-faultts #chart2 {
 	height: 25em;
 	margin: 0 0 2em 0;
 }
@@ -364,7 +377,7 @@ div#map {
 }
 
 /* Dashboard: Rail Line Length of Delay (Time Series)
-********************************************************/
+ ********************************************************/
 #db-line-dfreq #chart1 {
 	height: 25em;
 	margin: 0 0 1em 0;
@@ -379,17 +392,17 @@ div#map {
 }
 
 /* Dashboard: Major Disruptions
-********************************************************/
+ ********************************************************/
 
-#majord-control1,#majord-control2,#majord-control3,#majord-control4,#majord-control5 {
+#majord-control1, #majord-control2, #majord-control3, #majord-control4, #majord-control5 {
 	margin: 1em 1em 1em 0;
 }
 
-#majord-chart2,#majord-chart3,#majord-dashboard #tip-sort-columns {
+#majord-chart2, #majord-chart3, #majord-dashboard #tip-sort-columns {
 	margin: 4em 0 0 0;
 }
 
-#majord-chart1,#majord-chart2,#majord-chart3 {
+#majord-chart1, #majord-chart2, #majord-chart3 {
 	margin: 2em 0 2em 0;
 	height: 35em; /* min height for edge bubbles not to be cropped */
 }
@@ -400,7 +413,7 @@ div#map {
 }
 
 /* Report: Fine Lines
-********************************************************/
+ ********************************************************/
 #fines-control1 {
 	width: 30em;
 	margin: 1em 0 1em 0;
@@ -417,7 +430,7 @@ div#map {
 }
 
 /* Train Faults Halved (Report)
-********************************************************/
+ ********************************************************/
 
 #incidents-count.chart {
 	height: 25em;
@@ -428,13 +441,13 @@ div#map {
 	margin: 0 0 3em 0;
 }
 
-#incidents-control1,#incidents-control2,#incidents-control3 {
+#incidents-control1, #incidents-control2, #incidents-control3 {
 	margin: 0 1em 0 0;
 }
 
 #incidents-chart1 {
 	/*height set in chart options to enable scrollbar*/
-	margin: 1em 0 0 0;	
+	margin: 1em 0 0 0;
 }
 
 table#duration {
@@ -442,14 +455,13 @@ table#duration {
 }
 
 /* Overview (Dashboard)
-********************************************************/
-.overview #chart4,.overview #chart5 {
+ ********************************************************/
+.overview #chart4, .overview #chart5 {
 	height: 15em;
 	margin: 1em 0 2em 0;
 }
 
-.overview #chart1,.overview #chart2,.overview #chart6,.overview #chart7
-	{
+.overview #chart1, .overview #chart2, .overview #chart6, .overview #chart7 {
 	height: 25em;
 	margin: 0 0 2em 0;
 }
@@ -460,7 +472,7 @@ table#duration {
 }
 
 /* Sidenav (adapted from Bootstrap docs)
-********************************************************/
+ ********************************************************/
 .frail-sidenav {
 	width: 13em; /* original value 228px */
 	margin: 30px 0 0;
@@ -474,7 +486,7 @@ table#duration {
 	box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
 }
 
-.frail-sidenav>li>a {
+.frail-sidenav > li > a {
 	display: block;
 	*width: 190px;
 	margin: 0 0 -1px;
@@ -482,30 +494,27 @@ table#duration {
 	border: 1px solid #e5e5e5;
 }
 
-.frail-sidenav>li:first-child>a {
+.frail-sidenav > li:first-child > a {
 	-webkit-border-radius: 6px 6px 0 0;
 	-moz-border-radius: 6px 6px 0 0;
 	border-radius: 6px 6px 0 0;
 }
 
-.frail-sidenav>li:last-child>a {
+.frail-sidenav > li:last-child > a {
 	-webkit-border-radius: 0 0 6px 6px;
 	-moz-border-radius: 0 0 6px 6px;
 	border-radius: 0 0 6px 6px;
 }
 
-.frail-sidenav>.active>a {
+.frail-sidenav > .active > a {
 	position: relative;
 	z-index: 2;
 	padding: 9px 15px;
 	border: 0;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, .15);
-	-webkit-box-shadow: inset 1px 0 0 rgba(0, 0, 0, .1), inset -1px 0 0
-		rgba(0, 0, 0, .1);
-	-moz-box-shadow: inset 1px 0 0 rgba(0, 0, 0, .1), inset -1px 0 0
-		rgba(0, 0, 0, .1);
-	box-shadow: inset 1px 0 0 rgba(0, 0, 0, .1), inset -1px 0 0
-		rgba(0, 0, 0, .1);
+	-webkit-box-shadow: inset 1px 0 0 rgba(0, 0, 0, .1), inset -1px 0 0 rgba(0, 0, 0, .1);
+	-moz-box-shadow: inset 1px 0 0 rgba(0, 0, 0, .1), inset -1px 0 0 rgba(0, 0, 0, .1);
+	box-shadow: inset 1px 0 0 rgba(0, 0, 0, .1), inset -1px 0 0rgba(0, 0, 0, .1);
 }
 /* Chevrons */
 .frail-sidenav .icon-chevron-right {
@@ -515,7 +524,7 @@ table#duration {
 	opacity: .25;
 }
 
-.frail-sidenav>li>a:hover {
+.frail-sidenav > li > a:hover {
 	background-color: #f5f5f5;
 }
 
@@ -523,8 +532,7 @@ table#duration {
 	opacity: .5;
 }
 
-.frail-sidenav .active .icon-chevron-right,.frail-sidenav .active a:hover .icon-chevron-right
-	{
+.frail-sidenav .active .icon-chevron-right, .frail-sidenav .active a:hover .icon-chevron-right {
 	background-image: url(../bootstrap/img/glyphicons-halflings-white.png);
 	opacity: 1;
 }
