@@ -642,12 +642,12 @@ FailRail.Charter = {
 				FailRail.Charter.dataSourceUrl);
 
 		query.setQuery("select A, I, K, M, N, O, P, Q/60, R "
-				+ "where (M = 1 or M >= 20000 or P > 0) " + // Major disruption
+				+ "where (P > 0) " + // Major disruption
 				// 1 commuter affected means unknown number of commuters
 				// The service operator was penalised with a fine
 				"and K != 'Person hit by train' " + // Not the fault of service
 				// operators
-				"and R > date '2005-12-31' " + //Filter out disruptions before 2006
+				"and R >= date '2011-01-01' " + //Filter out disruptions before 2006
 				"order by G desc " + "label Q/60 'Delay Hours' "
 				+ ", M 'Commuters Affected' " + ", N 'Buses Deployed' "
 				+ ", O 'Staff Deployed' " + ", P 'Fine Amount ($)' "
